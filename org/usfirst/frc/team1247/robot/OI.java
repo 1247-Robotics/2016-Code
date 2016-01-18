@@ -1,4 +1,4 @@
-package org.usfirst.frc.team1247.robot;
+ package org.usfirst.frc.team1247.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 /**
@@ -9,25 +9,52 @@ public class OI {
     //// CREATING BUTTONS
     
 	Joystick leftJoystick;
-	Joystick rightJoystick;
-	
+	Joystick rightJoystick; 
+	Joystick xboxJoystick;
+	Joystick snesJoystick;
 	/**
 	 * Initializes both joysticks.
 	 */
 	public OI () {
-		leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
-		rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
+		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
+			leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
+			rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
+		} else if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			xboxJoystick = new Joystick(RobotMap.XBOX_ID);
+		} else {
+			snesJoystick = new Joystick(RobotMap.SNES_ID);
+		}
 	}
 	
 	public double getLeftAxis() {
-		return leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
+			return leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+		} else if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			return xboxJoystick.getRawAxis(RobotMap.XBOX_LEFT_YAXIS_ID);
+		} else { 
+			return snesJoystick.getRawAxis(RobotMap.SNES_LEFT_YAXIS_ID);
+		}
 	}
 	
 	public double getRightAxis() {
-		return rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
+			return rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+		} else if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			return xboxJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
+		} else { 
+			double axisValue;
+			if (snesJoystick.getRawButton(RobotMap.SNES_X_BUTTON_ID)){
+				axisValue = 1;
+			} else if (snesJoystick.getRawButton(RobotMap.SNES_Y_BUTTON_ID)){
+				axisValue = -1;
+			} else {
+				axisValue = 0;
+			}
+			return axisValue;
+		}
 	}
 	
-	public boolean getLiftButton() {
+	/*public boolean getLiftButton() {
 		return rightJoystick.getRawButton(RobotMap.JOYSTICK_LIFT_BUTTON_ID);
 	}
 	
@@ -49,10 +76,64 @@ public class OI {
 	
 	public boolean getCanButtonDown() {
 		return leftJoystick.getRawButton(RobotMap.JOYSTICK_CAN_DOWN_BUTTON_ID);
-	}
+	}*/
 	
 	public double getZThrottle() {
-		return rightJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);			
+		double throttle;
+		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK)
+			throttle = rightJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
+			throttle = -0.60*throttle + 1;
+		} else {
+			throttle = RobotMap.CONTROLLER_THROTTLE;
+		}
+		return throttle;			
 	}
 }
-
+	/*public boolean getXboxLiftButton () {
+		return xboxJoystick.getRawButton(RobotMap.XBOX_LIFT_BUTTON_ID);
+	}
+	
+	public boolean getXboxReverseLiftButton () {
+		return xboxJoystick.getRawButton(RobotMap.XBOX_REVERSE_BUTTON_ID);
+	}
+	
+	public boolean getXboxToteButton(){ 
+		return xboxJoystick.getRawButton(RobotMap.JOYSTICK_TOTE_UP_BUTTON_ID);
+	}
+	
+	public boolean getXboxToteButtonDown(){
+		return xboxJoystick.getRawButton(RobotMap.XBOX_TOTE_DOWN_BUTTON_ID);
+	}
+	
+	public boolean getXboxCanButton () {
+		return xboxJoystick.getRawButton(RobotMap.XBOX_CAN_UP_BUTTON_ID);
+	}
+	
+	public boolean getXboxCanButtonDown () {
+		return xboxJoystick.getRawButton(RobotMap.XBOX_CAN_DOWN_BUTON_ID);
+	}
+	
+	public boolean getSnesLiftButton () {
+		return snesJoystick.getRawButton(RobotMap.SNES_LIFT_BUTTON_ID);
+	}
+	
+	public boolean getSnesReverseLiftButton () {
+		return snesJoystick.getRawButton(RobotMap.SNES_REVERSE_LIFT_BUTTON_ID);
+	}
+	
+	public boolean getSnesToteButton () {
+		return snesJoystick.getRawButton(RobotMap.SNES_TOTE_UP_BUTTON_ID);
+	}
+	
+	public boolean getSnesToteButtonDown () {
+		return snesJoystick.getRawButton(RobotMap.SNES_TOTE_DOWN_BUTTON_ID);
+	}
+	
+	public boolean getSnesCanButton () {
+		return snesJoystick.getRawButton(RobotMap.SNES_CAN_UP_BUTTON_ID);
+	}
+	
+	public boolean getSnesCanButtonDown () {
+		return snesJoystick.getRawButton(RobotMap.SNES_CAN_DOWN_BUTTON_ID);
+	}
+}*/

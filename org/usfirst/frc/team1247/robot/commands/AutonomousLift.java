@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1247.robot.commands;
 
-import org.usfirst.frc.team1247.robot.utils.LiftingState;
+//import org.usfirst.frc.team1247.robot.utils.LiftingState;
 
 /**
  * The command for controlling the <code>Lift</code> subsystem during autonomous mode.
@@ -10,7 +10,7 @@ import org.usfirst.frc.team1247.robot.utils.LiftingState;
  * @see BaseCommand
  *
  */
-public class AutonomousLift extends BaseCommand {
+/*public class AutonomousLift extends BaseCommand {
 	
 	LiftingState liftingState;
 	
@@ -19,31 +19,31 @@ public class AutonomousLift extends BaseCommand {
 	 * @param liftingState An <code>enum</code> for the state in which the command will lift.
 	 * @see LiftingState
 	 */
-	public AutonomousLift(LiftingState liftingState) {
+	/*public AutonomousLift(LiftingState liftingState) {
 		this.liftingState = liftingState;
 	}
-
+*/
 	/* (non-Javadoc)
 	 * @see org.usfirst.frc.team1247.robot.commands.BaseCommand#initialize()
 	 */
-	@Override
+/*	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
 		super.initialize();
 	}
-
+*/
 	/**
 	 * Lifts or lowers an object based on the given parameter for liftingState.
 	 */
-	@Override
+/*	@Override
 	protected void execute() {
 		liftSys.lift(liftingState);
-	}
+	}*/
 
 	/* (non-Javadoc)
 	 * @see org.usfirst.frc.team1247.robot.commands.BaseCommand#isFinished()
 	 */
-	@Override
+/*	@Override
 	protected boolean isFinished() {
 		return !liftSys.isLifting();
 	}
@@ -51,7 +51,7 @@ public class AutonomousLift extends BaseCommand {
 	/* (non-Javadoc)
 	 * @see org.usfirst.frc.team1247.robot.commands.BaseCommand#end()
 	 */
-	@Override
+	/*@Override
 	protected void end() {
 		// TODO Auto-generated method stub
 		super.end();
@@ -60,7 +60,7 @@ public class AutonomousLift extends BaseCommand {
 	/* (non-Javadoc)
 	 * @see org.usfirst.frc.team1247.robot.commands.BaseCommand#interrupted()
 	 */
-	@Override
+	/*@Override
 	protected void interrupted() {
 		// TODO Auto-generated method stub
 		super.interrupted();
@@ -68,4 +68,4 @@ public class AutonomousLift extends BaseCommand {
 	
 	
 
-}
+*/

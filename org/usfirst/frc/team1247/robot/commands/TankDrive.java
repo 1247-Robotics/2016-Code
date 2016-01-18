@@ -1,5 +1,9 @@
 package org.usfirst.frc.team1247.robot.commands;
 
+import org.usfirst.frc.team1247.robot.OI;
+
+import org.usfirst.frc.team1247.robot.RobotMap;
+
 /**
  * Command that calls the <code>tankDrive</code> method of the <code>DriveTrain</code> subsystem.
  * Extends <code>BaseCommand</code>
@@ -19,11 +23,10 @@ public class TankDrive extends BaseCommand{
 
 	@Override
 	protected void execute() {
-		throttle = Math.abs(oi.getZThrottle());
-		throttle = -0.60*throttle + 1;
-		
-		driveTrain.tankDrive(-oi.getLeftAxis()*throttle*.50, 
-							 -oi.getRightAxis()*throttle*.50);
+	throttle = Math.abs(oi.getZThrottle());
+	
+	driveTrain.tankDrive(-oi.getLeftAxis()*throttle, 
+							 -oi.getRightAxis()*throttle);
 	}
 
 	@Override

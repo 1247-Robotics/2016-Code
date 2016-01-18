@@ -8,7 +8,7 @@ import org.usfirst.frc.team1247.robot.RobotMap;
  * @author Zander Blasingame
  * @version v1.0.0
  */
-public enum LiftingState {
+/*public enum LiftingState {
 	MANUAL_UP(RobotMap.UP_DELTA_X), 
 	MANUAL_DOWN(RobotMap.DOWN_DELTA_X), 
 	TOTE_UP(RobotMap.UP_DELTA_X),
@@ -27,3 +27,4 @@ public enum LiftingState {
 		return dx;
 	}
 }
+*/

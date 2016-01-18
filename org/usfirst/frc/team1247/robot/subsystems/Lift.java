@@ -1,8 +1,8 @@
-package org.usfirst.frc.team1247.robot.subsystems;
+/*package org.usfirst.frc.team1247.robot.subsystems;
 
 import org.usfirst.frc.team1247.robot.RobotMap;
-import org.usfirst.frc.team1247.robot.commands.LiftCommand;
-import org.usfirst.frc.team1247.robot.utils.LiftingState;
+//import org.usfirst.frc.team1247.robot.commands.LiftCommand;
+//import org.usfirst.frc.team1247.robot.utils.LiftingState;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * @version v4.2.1
  * @see PIDSubsystem
  */
-public class Lift extends PIDSubsystem{
+/*public class Lift extends PIDSubsystem{
 	
 	private Talon liftTalon;
 	
@@ -82,7 +82,7 @@ public class Lift extends PIDSubsystem{
 	 * @param toteDown
 	 * @param canDown
 	 */
-	public void lift(boolean upButton, boolean downButton, boolean toteUp, boolean canUp, boolean toteDown, boolean canDown) {
+	/*public void lift(boolean upButton, boolean downButton, boolean toteUp, boolean canUp, boolean toteDown, boolean canDown) {
 		if (toteUp) {
 			liftToteUp = true;
 			liftToteDown = false;
@@ -125,7 +125,7 @@ public class Lift extends PIDSubsystem{
 	 * Updates the actions of the PID control loop based on the booleans for input.
 	 * @param liftingState
 	 */
-	public void lift(LiftingState liftingState) {
+/*	public void lift(LiftingState liftingState) {
 		switch(liftingState) {
 		case CAN_DOWN:
 			desiredDeltaX = -RobotMap.CAN_HEIGHT;
@@ -179,8 +179,7 @@ public class Lift extends PIDSubsystem{
 	/**
 	 * Automatically adjust the height.
 	 */
-	private void automaticAdjustment(LiftingState liftingState) {
-		deltaX = encoder.getDistance() - x_0; //grabs change in x.
+	/*	deltaX = encoder.getDistance() - x_0; //grabs change in x.
 		
 		switch(automaticHeightAdjust) {
 		case DOWN:
@@ -200,7 +199,7 @@ public class Lift extends PIDSubsystem{
 	 * Increases the setPoint of the PID Controller by <code>dx</code>
 	 * @param dx
 	 */
-	private void increase(float dx) {
+	/*private void increase(float dx) {
 		isLifting = false; //checks if lift is lifting.
 				
 		if (dx == 0) {
@@ -219,7 +218,7 @@ public class Lift extends PIDSubsystem{
 	/**
 	 * @return the isLifting
 	 */
-	public boolean isLifting() {
+	/*public boolean isLifting() {
 		return isLifting;
 	}
 
@@ -234,4 +233,4 @@ public class Lift extends PIDSubsystem{
 		liftTalon.set(output);
 	}
 
-}
+}*/

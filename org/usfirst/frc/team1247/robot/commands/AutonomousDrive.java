@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Timer;
 /**
  * The command for driving during autonomous. Extends <code>BaseCommand</code>.
  * @author Zander Blasingame
- * @version v1.1.2
+ * @version v1.1.2b
  * @see BaseCommand
  */
 public class AutonomousDrive extends BaseCommand {
@@ -75,7 +75,7 @@ public class AutonomousDrive extends BaseCommand {
 		else isFinished = true;
 	}
 
-	/* (non-Javadoc)
+	/* (non-Javadoc)  
 	 * @see org.usfirst.frc.team1247.robot.commands.BaseCommand#isFinished()
 	 */
 	@Override

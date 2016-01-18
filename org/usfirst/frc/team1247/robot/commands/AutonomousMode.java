@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1247.robot.commands;
 
-import org.usfirst.frc.team1247.robot.utils.LiftingState;
+//import org.usfirst.frc.team1247.robot.utils.LiftingState;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -27,9 +27,9 @@ public class AutonomousMode extends CommandGroup {
 //		addSequential(new AutonomousDrive(0.75, 3.0));
 		
 		addSequential(new AutonomousDrive(.75, 1.5));
-		addSequential(new AutonomousLift(LiftingState.TOTE_UP));
+		//addSequential(new AutonomousLift(LiftingState.TOTE_UP));
 		addSequential(new AutonomousDrive(-0.75, 1.5));
-		addSequential(new AutonomousLift(LiftingState.TOTE_DOWN));
+		//addSequential(new AutonomousLift(LiftingState.TOTE_DOWN));
 		addSequential(new AutonomousDrive(-0.5, 0.2));
 		
 	}

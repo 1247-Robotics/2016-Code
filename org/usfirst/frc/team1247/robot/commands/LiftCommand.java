@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1247.robot.commands;
 
-import org.usfirst.frc.team1247.robot.utils.LiftingState;
+//import org.usfirst.frc.team1247.robot.utils.LiftingState;
 
 /**
  * Command that calls the <code>update</code> method of the <code>LiftCommand</code> subsystem.
@@ -8,7 +8,7 @@ import org.usfirst.frc.team1247.robot.utils.LiftingState;
  * @author Zander Blasingame
  * @version v1.0.2
  */
-public class LiftCommand extends BaseCommand {
+/*public class LiftCommand extends BaseCommand {
 	
 	private LiftingState liftingState;
 	
@@ -69,4 +69,4 @@ public class LiftCommand extends BaseCommand {
 	}
 	
 	
-}
+}*/
