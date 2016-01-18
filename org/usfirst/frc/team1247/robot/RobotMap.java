@@ -27,8 +27,12 @@ public class RobotMap {
 	//Xbox Controller
 	public static final int XBOX_LEFT_YAXIS_ID = 1;
 	public static final int XBOX_RIGHT_YAXIS_ID = 5;
-	public static final int XBOX_LIFT_BUTTON_ID = 6;
-	public static final int XBOX_REVERSE_LIFT_BUTTON_ID = 5;
+	public static final int XBOX_PNEUMATICS_RTRIGGER_ID = 3;
+	public static final int XBOX_PNEUMATICS_LTRIGGER_ID = 2;
+	public static final int XBOX_PNEUMATICS_RIGHT_BUTTON_ID = 6;
+	public static final int XBOX_PNEUMATICS_LEFT_BUTTON_ID = 5;
+	public static final int XBOX_LIFT_BUTTON_ID = 9;
+	public static final int XBOX_REVERSE_LIFT_BUTTON_ID = 10;
 	public static final int XBOX_TOTE_UP_BUTTON_ID = 1;
 	public static final int XBOX_TOTE_DOWN_BUTTON_ID = 2;
 	public static final int XBOX_CAN_UP_BUTTON_ID = 3;
@@ -54,6 +58,8 @@ public class RobotMap {
 	public static final int ENCODER_CHANNEL_LIFT_A = 8;
 	public static final int ENCODER_CHANNEL_LIFT_B = 9;
 	
+	//Pneumatics
+	public static final int COMPRESSOR_CHANNEL = 0;
 	
 	//for PID controller.
 	public static final float PROPORTIONAL_GAIN = 0.55f;

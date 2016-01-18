@@ -2,7 +2,7 @@ package org.usfirst.frc.team1247.robot.commands;
 
 import org.usfirst.frc.team1247.robot.OI;
 import org.usfirst.frc.team1247.robot.subsystems.DriveTrain;
-//import org.usfirst.frc.team1247.robot.subsystems.Lift;
+import org.usfirst.frc.team1247.robot.subsystems.Pnuematics;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,6 +20,8 @@ public abstract class BaseCommand extends Command {
 	
 	//create subsystems.
 	public static DriveTrain driveTrain;
+	
+	public static Pnuematics pnuematics;
 	//public static Lift liftSys;
 	
 	public BaseCommand() {
@@ -46,6 +48,7 @@ public abstract class BaseCommand extends Command {
 		
 		//Initialize subsystems.
 		driveTrain = new DriveTrain();
+		pnuematics = new Pnuematics();
 		//liftSys = new Lift();
 		
 		//displays stuff on smartdashboard

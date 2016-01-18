@@ -80,7 +80,7 @@ public class OI {
 	
 	public double getZThrottle() {
 		double throttle;
-		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK)
+		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
 			throttle = rightJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
 			throttle = -0.60*throttle + 1;
 		} else {
@@ -88,6 +88,42 @@ public class OI {
 		}
 		return throttle;			
 	}
+	
+	public boolean getFrontLeftPneumaticsButton(){
+		boolean pressed = false;
+		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_LEFT_BUTTON_ID);
+		}
+		return pressed;
+	}
+	public boolean getFrontRightPneumaticsButton(){
+		boolean pressed = false;
+		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_BUTTON_ID);
+		}
+		return pressed;
+	}
+	
+	public boolean getRearLeftPneumaticsButton(){
+		boolean pressed = false;
+		double triggerValue = 0;
+		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			triggerValue = xboxJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_LTRIGGER_ID);
+			if (triggerValue > 0){
+				pressed = true;
+			}
+		}
+		return pressed;
+		}
+	public boolean getRearRightPneumaticsButton(){
+		boolean pressed = false;
+		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
+		}
+		return pressed;
+	}
+	
+	
 }
 	/*public boolean getXboxLiftButton () {
 		return xboxJoystick.getRawButton(RobotMap.XBOX_LIFT_BUTTON_ID);
