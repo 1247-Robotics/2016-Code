@@ -60,6 +60,14 @@ public class RobotMap {
 	
 	//Pneumatics
 	public static final int COMPRESSOR_CHANNEL = 0;
+	public static final int FRONT_RIGHT_LEG_SOLENOID_CHANNEL = 1;
+	public static final int FRONT_LEFT_LEG_SOLENOID_CHANNEL = 2;
+	public static final int REAR_RIGHT_LEG_SOLENOID_CHANNEL = 3;
+	public static final int REAR_LEFT_LEG_SOLENOID_CHANNEL = 4;
+	public static final int FRONT_RIGHT_LEG = 1;
+	public static final int FRONT_LEFT_LEG = 2;
+	public static final int REAR_RIGHT_LEG = 3;
+	public static final int REAR_LEFT_LEG = 4;
 	
 	//for PID controller.
 	public static final float PROPORTIONAL_GAIN = 0.55f;
