@@ -2,8 +2,10 @@ package org.usfirst.frc.team1247.robot.commands;
 
 import org.usfirst.frc.team1247.robot.OI;
 import org.usfirst.frc.team1247.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team1247.robot.subsystems.Pnuematics;
+import org.usfirst.frc.team1247.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team1247.robot.subsystems.Arm;
+import org.usfirst.frc.team1247.robot.subsystems.Legs;
+import org.usfirst.frc.team1247.robot.subsystems.LegsDriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -22,9 +24,13 @@ public abstract class BaseCommand extends Command {
 	//create subsystems.
 	public static DriveTrain driveTrain;
 	
+	public static LegsDriveTrain legsDrive;
+	
 	public static Arm arm;
 	
-	public static Pnuematics pnuematics;
+	public static Pneumatics pneumatics;
+	
+	public static Legs legs;
 	//public static Lift liftSys;
 	
 	public BaseCommand() {
@@ -51,7 +57,7 @@ public abstract class BaseCommand extends Command {
 		
 		//Initialize subsystems.
 		driveTrain = new DriveTrain();
-		pnuematics = new Pnuematics();
+		pneumatics = new Pneumatics();
 		arm = new Arm();
 		//liftSys = new Lift();
 		

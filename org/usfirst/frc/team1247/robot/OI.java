@@ -123,6 +123,10 @@ public class OI {
 		return pressed;
 		}
 	
+	public boolean getLegToggleButton(){
+		return xboxJoystick.getRawButton(RobotMap.XBOX_LEG_TOGGLE_BUTTON_ID);
+	}
+	
 	//public double 
 	
 }

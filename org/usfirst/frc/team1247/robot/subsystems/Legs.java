@@ -1,30 +1,24 @@
 package org.usfirst.frc.team1247.robot.subsystems;
-
+ 
 import org.usfirst.frc.team1247.robot.RobotMap;
+import org.usfirst.frc.team1247.robot.subsystems.Pneumatics;
 
-import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
-
-
-public class Pnuematics extends Subsystem {
-    private Compressor compressor;
-    
-    private Solenoid frontRightLegSolenoid;
-    private Solenoid frontLeftLegSolenoid;
-    private Solenoid rearRightLegSolenoid;
-    private Solenoid rearLeftLegSolenoid;
-    
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    public Pnuematics(){
-    	compressor = new Compressor(RobotMap.COMPRESSOR_CHANNEL);
-    	compressor.setClosedLoopControl(true);
-    	
+public class Legs extends Subsystem {
+	 
+		private Solenoid frontRightLegSolenoid;
+	    private Solenoid frontLeftLegSolenoid;
+	    private Solenoid rearRightLegSolenoid;
+	    private Solenoid rearLeftLegSolenoid;
+	    
+    public void initDefaultCommand() {
     	frontRightLegSolenoid = new Solenoid(RobotMap.FRONT_RIGHT_LEG_SOLENOID_CHANNEL);
     	frontLeftLegSolenoid = new Solenoid(RobotMap.FRONT_LEFT_LEG_SOLENOID_CHANNEL);
     	rearRightLegSolenoid = new Solenoid(RobotMap.REAR_RIGHT_LEG_SOLENOID_CHANNEL);
@@ -62,8 +56,5 @@ public class Pnuematics extends Subsystem {
     	}
     }
 
-    public void initDefaultCommand(){
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
 }
+

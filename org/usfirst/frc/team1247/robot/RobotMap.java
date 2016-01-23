@@ -35,7 +35,7 @@ public class RobotMap {
 	//public static final int XBOX_ARM_
 	public static final int XBOX_LIFT_BUTTON_ID = 9;
 	public static final int XBOX_REVERSE_LIFT_BUTTON_ID = 10;
-	public static final int XBOX_TOTE_UP_BUTTON_ID = 1;
+	public static final int XBOX_LEG_TOGGLE_BUTTON_ID = 1;
 	public static final int XBOX_TOTE_DOWN_BUTTON_ID = 2;
 	public static final int XBOX_CAN_UP_BUTTON_ID = 3;
 	public static final int XBOX_CAN_DOWN_BUTON_ID = 4;
@@ -55,6 +55,10 @@ public class RobotMap {
 	//Talons
 	public static final int TALON_CHANNEL_LEFT = 0;
 	public static final int TALON_CHANNEL_RIGHT = 1;
+	public static final int LEG_TALON_CHANNEL_FRONT_RIGHT = 3;
+	public static final int LEG_TALON_CHANNEL_FRONT_LEFT = 4;
+	public static final int LEG_TALON_CHANNEL_REAR_RIGHT = 5;
+	public static final int LEG_TALON_CHANNEL_REAR_LEFT = 6;
 	public static final int TALON_CHANNEL_LIFT = 2;
 	
 	public static final int ENCODER_CHANNEL_LIFT_A = 8;
