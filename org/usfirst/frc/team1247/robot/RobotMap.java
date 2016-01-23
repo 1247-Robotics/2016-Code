@@ -31,6 +31,8 @@ public class RobotMap {
 	public static final int XBOX_PNEUMATICS_LTRIGGER_ID = 2;
 	public static final int XBOX_PNEUMATICS_RIGHT_BUTTON_ID = 6;
 	public static final int XBOX_PNEUMATICS_LEFT_BUTTON_ID = 5;
+	//public static final int XBOX_ARM_
+	//public static final int XBOX_ARM_
 	public static final int XBOX_LIFT_BUTTON_ID = 9;
 	public static final int XBOX_REVERSE_LIFT_BUTTON_ID = 10;
 	public static final int XBOX_TOTE_UP_BUTTON_ID = 1;
