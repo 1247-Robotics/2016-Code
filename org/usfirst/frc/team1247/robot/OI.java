@@ -15,6 +15,8 @@ public class OI {
 	/**
 	 * Initializes both joysticks.
 	 */
+	
+	//Controller type
 	public OI () {
 		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
 			leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
@@ -25,6 +27,8 @@ public class OI {
 			snesJoystick = new Joystick(RobotMap.SNES_ID);
 		}
 	}
+	
+	//Axis
 	
 	public double getLeftAxis() {
 		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
@@ -54,29 +58,7 @@ public class OI {
 		}
 	}
 	
-	/*public boolean getLiftButton() {
-		return rightJoystick.getRawButton(RobotMap.JOYSTICK_LIFT_BUTTON_ID);
-	}
-	
-	public boolean getReverseLiftButton() {
-		return leftJoystick.getRawButton(RobotMap.JOYSTICK_REVERSE_LIFT_BUTTON_ID);
-	}
-	
-	public boolean getToteButton() {
-		return rightJoystick.getRawButton(RobotMap.JOYSTICK_TOTE_UP_BUTTON_ID);
-	}
-	
-	public boolean getCanButton() {
-		return leftJoystick.getRawButton(RobotMap.JOYSTICK_CAN_UP_BUTTON_ID);
-	}
-	
-	public boolean getToteButtonDown() {
-		return rightJoystick.getRawButton(RobotMap.JOYSTICK_TOTE_DOWN_BUTTON_ID);
-	}
-	
-	public boolean getCanButtonDown() {
-		return leftJoystick.getRawButton(RobotMap.JOYSTICK_CAN_DOWN_BUTTON_ID);
-	}*/
+// Throttle
 	
 	public double getZThrottle() {
 		double throttle;
@@ -89,17 +71,24 @@ public class OI {
 		return throttle;			
 	}
 	
+	//Pneumatic leg buttons
+	
 	public boolean getFrontLeftPneumaticsButton(){
 		boolean pressed = false;
 		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_LEFT_BUTTON_ID);
+		} else {
+			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_LEFT_BUTTON_ID);
 		}
 		return pressed;
 	}
+	
 	public boolean getFrontRightPneumaticsButton(){
 		boolean pressed = false;
 		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_BUTTON_ID);
+		} else {
+			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_RIGHT_BUTTON_ID);
 		}
 		return pressed;
 	}
@@ -111,25 +100,91 @@ public class OI {
 			triggerValue = xboxJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_LTRIGGER_ID);
 			if (triggerValue > 0){
 				pressed = true;
-			}
-		}
-		return pressed;
-		}
-	public boolean getRearRightPneumaticsButton(){
-		boolean pressed = false;
-		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
+			}	
+		} else {
+			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_REAR_LEFT_BUTTON_ID);
 		}
 		return pressed;
 		}
 	
-	public boolean getLegToggleButton(){
-		return xboxJoystick.getRawButton(RobotMap.XBOX_LEG_TOGGLE_BUTTON_ID);
+	public boolean getRearRightPneumaticsButton(){
+		boolean pressed = false;
+		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
+		} else {
+			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_REAR_RIGHT_BUTTON_ID);
+		}
+		return pressed;
+		}
+	
+	//Leg toggle button
+	
+	public void getLegToggleButton(){
+		boolean pressed = false; 
+		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_LEG_TOGGLE_BUTTON_ID);
+			if (pressed){
+				if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
+					RobotMap.DRIVETYPE = RobotMap.LEGSDRIVE;
+				} else {
+					RobotMap.DRIVETYPE = RobotMap.DRIVETRAIN;
+				}
+			}
+		} else {
+			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_LEG_TOGGLE_BUTTON_ID);
+			if (pressed){
+				if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
+					RobotMap.DRIVETYPE = RobotMap.LEGSDRIVE;
+				} else {
+					RobotMap.DRIVETYPE = RobotMap.DRIVETRAIN;
+				}
+			}
+		}
+	}
+		
+		// Suction
+		
+		public boolean getSuctionButton(){
+			boolean pressed = false;
+			if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+				pressed = xboxJoystick.getRawButton(RobotMap.XBOX_SUCTION_BUTTON_ID);
+			} else if(RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER) {
+				pressed = rightJoystick.getRawButton(RobotMap.XBOX_REVERSE_SUCTION_BUTTON_ID);
+			} else {
+				
+			}
+			return pressed;
+			
+		
 	}
 	
 	//public double 
 	
 }
+/*public boolean getLiftButton() {
+return rightJoystick.getRawButton(RobotMap.JOYSTICK_LIFT_BUTTON_ID);
+}
+
+public boolean getReverseLiftButton() {
+return leftJoystick.getRawButton(RobotMap.JOYSTICK_REVERSE_LIFT_BUTTON_ID);
+}
+
+public boolean getToteButton() {
+return rightJoystick.getRawButton(RobotMap.JOYSTICK_TOTE_UP_BUTTON_ID);
+}
+
+public boolean getCanButton() {
+return leftJoystick.getRawButton(RobotMap.JOYSTICK_CAN_UP_BUTTON_ID);
+}
+
+public boolean getToteButtonDown() {
+return rightJoystick.getRawButton(RobotMap.JOYSTICK_TOTE_DOWN_BUTTON_ID);
+}
+
+public boolean getCanButtonDown() {
+return leftJoystick.getRawButton(RobotMap.JOYSTICK_CAN_DOWN_BUTTON_ID);
+}*/
+
 	/*public boolean getXboxLiftButton () {
 		return xboxJoystick.getRawButton(RobotMap.XBOX_LIFT_BUTTON_ID);
 	}

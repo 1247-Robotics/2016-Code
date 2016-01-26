@@ -2,6 +2,8 @@ package org.usfirst.frc.team1247.robot.subsystems;
 
 import org.usfirst.frc.team1247.robot.RobotMap;
 import org.usfirst.frc.team1247.robot.commands.TankDrive;
+import org.usfirst.frc.team1247.robot.commands.ArcadeDrive;
+
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
@@ -12,25 +14,28 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class LegsDriveTrain extends Subsystem {
     
-	private Talon talonFrontRight, talonFrontLeft, talonRearRight, talonRearLeft;
+	private Talon talonRight, talonLeft;
 	private RobotDrive drive;
 
 	public LegsDriveTrain() {
-		talonFrontRight = new Talon(RobotMap.LEG_TALON_CHANNEL_FRONT_RIGHT);
-		talonFrontLeft = new Talon(RobotMap.LEG_TALON_CHANNEL_FRONT_LEFT);
-		talonRearRight = new Talon(RobotMap.LEG_TALON_CHANNEL_REAR_RIGHT);
-		talonRearLeft = new Talon(RobotMap.LEG_TALON_CHANNEL_REAR_LEFT);
+		talonRight = new Talon(RobotMap.LEG_TALON_CHANNEL_RIGHT);
+		talonLeft = new Talon(RobotMap.LEG_TALON_CHANNEL_LEFT);
 		
-		drive = new RobotDrive(talonFrontRight, talonFrontLeft, talonRearRight, talonRearLeft);
+		drive = new RobotDrive(talonRight, talonLeft);
 	}
 	
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new TankDrive());
+		setDefaultCommand(new ArcadeDrive());
+		}
+	
+	public void legsDrive(double left, double right) {
+		drive.tankDrive(left, right);
 	}
 	
-	public void tankDrive(double left, double right) {
-		drive.tankDrive(left, right);
+	public void legsArcadeDrive(double left, double right) {
+		drive.arcadeDrive(left,right);
 	}
 }
 

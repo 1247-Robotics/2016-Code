@@ -1,21 +1,18 @@
 package org.usfirst.frc.team1247.robot.commands;
 
 import org.usfirst.frc.team1247.robot.OI;
-
 import org.usfirst.frc.team1247.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
- * Command that calls the <code>tankDrive</code> method of the <code>DriveTrain</code> subsystem.
- * Extends <code>BaseCommand</code>
- * @author Zander Blasingame
- * @version v2.0.1
  *
  */
-public class TankDrive extends BaseCommand{
+public class ArcadeDrive extends BaseCommand {
 	
 	private double throttle;
 	
-	public TankDrive() {
+	public ArcadeDrive() {
 		throttle = 1.0;
 		
 		requires(driveTrain);
@@ -27,10 +24,10 @@ public class TankDrive extends BaseCommand{
 	throttle = Math.abs(oi.getZThrottle());
 	
 	if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
-		driveTrain.tankDrive(-oi.getLeftAxis()*throttle, 
+		driveTrain.arcadeDrive(-oi.getLeftAxis()*throttle, 
 							 -oi.getRightAxis()*throttle);
 	} else {
-		legsDrive.legsDrive(-oi.getLeftAxis()*throttle, 
+		legsDrive.legsArcadeDrive(-oi.getLeftAxis()*throttle, 
 				 			-oi.getRightAxis()*throttle);
 	}
 	}
@@ -58,8 +55,4 @@ public class TankDrive extends BaseCommand{
 		// TODO Auto-generated method stub
 		super.interrupted();
 	}
-	
-	
-	
-	
 }

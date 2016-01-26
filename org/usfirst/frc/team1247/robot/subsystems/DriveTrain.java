@@ -2,6 +2,7 @@ package org.usfirst.frc.team1247.robot.subsystems;
 
 import org.usfirst.frc.team1247.robot.RobotMap;
 import org.usfirst.frc.team1247.robot.commands.TankDrive;
+import org.usfirst.frc.team1247.robot.commands.ArcadeDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
@@ -29,9 +30,14 @@ public class DriveTrain extends Subsystem{
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new TankDrive());
+		setDefaultCommand(new ArcadeDrive());
 	}
 	
 	public void tankDrive(double left, double right) {
 		drive.tankDrive(left, right);
+	}
+
+	public void arcadeDrive(double left, double right) {
+		drive.arcadeDrive(left, right);
 	}
 }
