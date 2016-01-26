@@ -142,23 +142,27 @@ public class OI {
 		}
 	}
 		
-		// Suction
+	// Suction
 		
-		public boolean getSuctionButton(){
-			boolean pressed = false;
-			if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-				pressed = xboxJoystick.getRawButton(RobotMap.XBOX_SUCTION_BUTTON_ID);
-			} else if(RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER) {
-				pressed = rightJoystick.getRawButton(RobotMap.XBOX_REVERSE_SUCTION_BUTTON_ID);
-			} else {
-				
-			}
-			return pressed;
-			
-		
+	public boolean getSuctionButton(){
+		boolean pressed = false;
+		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_SUCTION_BUTTON_ID);
+		} else {
+			//pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);	
+		}
+		return pressed;
 	}
 	
-	//public double 
+	public boolean getReverseSuctionButton(){
+		boolean pressed = false;
+		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
+			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_REVERSE_SUCTION_BUTTON_ID);
+		} else {
+			//pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);
+		}
+		return pressed;
+	}
 	
 }
 /*public boolean getLiftButton() {

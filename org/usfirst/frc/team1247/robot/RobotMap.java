@@ -37,6 +37,10 @@ public class RobotMap {
 	public static final int JOYSTICK_CAN_DOWN_BUTTON_ID = 2;
 	public static final int JOYSTICK_REVERSE_BUTTON_ID = 4;
 	
+	//Suction for boulder
+	//public static final int JOYSTICK_SUCTION_BUTTON_ID = 
+	//public static final int JOYSTICK_REVERSE_SUCTION_BUTTON_ID = 
+	
 //-----------------------------------------------Xbox-------------------------------------------------------------------------------
 	
 	// Drive
@@ -63,6 +67,7 @@ public class RobotMap {
 	// Suction for boulder
 	public static final int XBOX_SUCTION_BUTTON_ID = 3;
 	public static final int XBOX_REVERSE_SUCTION_BUTTON_ID = 4;
+	
 	
 //-------------------------------------------------SNES----------------------------------------------------------------------------
 	

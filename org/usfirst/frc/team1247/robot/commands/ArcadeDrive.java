@@ -25,10 +25,10 @@ public class ArcadeDrive extends BaseCommand {
 	
 	if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
 		driveTrain.arcadeDrive(-oi.getLeftAxis()*throttle, 
-							 -oi.getRightAxis()*throttle);
+							   -oi.getRightAxis()*throttle);
 	} else {
 		legsDrive.legsArcadeDrive(-oi.getLeftAxis()*throttle, 
-				 			-oi.getRightAxis()*throttle);
+				 				  -oi.getRightAxis()*throttle);
 	}
 	}
 
