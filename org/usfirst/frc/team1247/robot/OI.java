@@ -149,7 +149,7 @@ public class OI {
 		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_SUCTION_BUTTON_ID);
 		} else {
-			//pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);	
+			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);	
 		}
 		return pressed;
 	}
@@ -159,7 +159,7 @@ public class OI {
 		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_REVERSE_SUCTION_BUTTON_ID);
 		} else {
-			//pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);
+			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);
 		}
 		return pressed;
 	}

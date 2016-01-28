@@ -38,8 +38,8 @@ public class RobotMap {
 	public static final int JOYSTICK_REVERSE_BUTTON_ID = 4;
 	
 	//Suction for boulder
-	//public static final int JOYSTICK_SUCTION_BUTTON_ID = 
-	//public static final int JOYSTICK_REVERSE_SUCTION_BUTTON_ID = 
+	public static final int JOYSTICK_SUCTION_BUTTON_ID = 10;
+	public static final int JOYSTICK_REVERSE_SUCTION_BUTTON_ID = 11;
 	
 //-----------------------------------------------Xbox-------------------------------------------------------------------------------
 	
@@ -141,7 +141,7 @@ public class RobotMap {
 	//TankDrive or ArcadeDrive
 	public static final int TANK_DRIVE = 1;
 	public static final int ARCADE_DRIVE = 2;
-	public static final int DRIVEMODE = TANK_DRIVE;
+	public static final int DRIVEMODE = ARCADE_DRIVE;
 //----------------------------------------------------------------------------------------------------------------------------------
 	//Joysticks, Xbox or Snes controller. Just choose integer
 	public static final int XBOX_CONTROLLER = 1;
