@@ -6,6 +6,7 @@ import org.usfirst.frc.team1247.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team1247.robot.subsystems.Arm;
 import org.usfirst.frc.team1247.robot.subsystems.Legs;
 import org.usfirst.frc.team1247.robot.subsystems.LegsDriveTrain;
+import org.usfirst.frc.team1247.robot.subsystems.Suction;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -31,6 +32,8 @@ public abstract class BaseCommand extends Command {
 	public static Pneumatics pneumatics;
 	
 	public static Legs legs;
+	
+	public static Suction suction;
 	//public static Lift liftSys;
 	
 	public BaseCommand() {
@@ -59,6 +62,7 @@ public abstract class BaseCommand extends Command {
 		driveTrain = new DriveTrain();
 		pneumatics = new Pneumatics();
 		arm = new Arm();
+		suction = new Suction();
 		//liftSys = new Lift();
 		
 		//displays stuff on smartdashboard

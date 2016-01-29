@@ -95,6 +95,10 @@ public class RobotMap {
 	public static final int TALON_CHANNEL_LIFT = 2;
 	public static final int TALON_CHANNEL_SUCTION = 5;
 	
+	public static final double SUCTION_SPEED = 1; //max is 1
+	public static final double BLOW_SPEED = -1;  //max is -1
+	public static final double SUCTION_STOP = 0;
+	
 	public static final int ENCODER_CHANNEL_LIFT_A = 8;
 	public static final int ENCODER_CHANNEL_LIFT_B = 9;
 	

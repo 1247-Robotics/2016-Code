@@ -33,26 +33,22 @@ public class LegsCommand extends BaseCommand {
     protected void execute() {
     	if (oi.getFrontRightPneumaticsButton()) {
     		legs.extendLeg(RobotMap.FRONT_RIGHT_LEG);
-    	}
-    	else{
+    	} else{
     		legs.retractLeg(RobotMap.FRONT_RIGHT_LEG);
     	}
     	if (oi.getFrontLeftPneumaticsButton()) {
     		legs.extendLeg(RobotMap.FRONT_LEFT_LEG);
-    	}
-    	else{
+    	} else{
     		legs.retractLeg(RobotMap.FRONT_LEFT_LEG);
-    	}
+    	} 
     	if (oi.getRearRightPneumaticsButton()) {
     		legs.extendLeg(RobotMap.REAR_RIGHT_LEG);
-    	}
-    	else{
+    	} else{
     		legs.retractLeg(RobotMap.REAR_RIGHT_LEG);
     	}
     	if (oi.getRearLeftPneumaticsButton()) {
     		legs.extendLeg(RobotMap.REAR_LEFT_LEG);
-    	}
-    	else{
+    	} else{
     		legs.retractLeg(RobotMap.REAR_LEFT_LEG);
     	}
     }

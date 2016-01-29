@@ -12,6 +12,7 @@ public class OI {
 	Joystick rightJoystick; 
 	Joystick xboxJoystick;
 	Joystick snesJoystick;
+	Joystick xboxArmJoystick;
 	/**
 	 * Initializes both joysticks.
 	 */
