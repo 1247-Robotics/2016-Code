@@ -152,5 +152,5 @@ public class RobotMap {
 	public static final int JOYSTICK = 2;
 	public static final int SNES_CONTROLLER = 3;
 	//Which one are we using?
-	public static final int DRIVE_CONTROL = XBOX_CONTROLLER;
+	public static final int DRIVE_CONTROL = JOYSTICK;
 }

@@ -31,6 +31,13 @@ public class OI {
 	
 	//Axis
 	
+	public double getXAxis() {
+		return leftJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
+	}
+	
+	public double getYAxis() {
+		return leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+	}
 	public double getLeftAxis() {
 		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
 			return leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);

@@ -24,8 +24,8 @@ public class ArcadeDrive extends BaseCommand {
 		throttle = Math.abs(oi.getZThrottle());
 		
 		if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
-			driveTrain.arcadeDrive(-oi.getLeftAxis()*throttle, 
-								   -oi.getRightAxis()*throttle);
+			driveTrain.arcadeDrive(-oi.getYAxis()*throttle, 
+								   -oi.getXAxis()*throttle);
 		} /*else {
 			legsDrive.legsArcadeDrive(-oi.getLeftAxis()*throttle, 
 					 				  -oi.getRightAxis()*throttle);
