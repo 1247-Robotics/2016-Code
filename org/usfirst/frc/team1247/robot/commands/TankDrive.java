@@ -19,20 +19,20 @@ public class TankDrive extends BaseCommand{
 		throttle = 1.0;
 		
 		requires(driveTrain);
-		requires(legsDrive);
+		//requires(legsDrive);
 	}
 
 	@Override
 	protected void execute() {
-	throttle = Math.abs(oi.getZThrottle());
-	
-	if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
-		driveTrain.tankDrive(-oi.getLeftAxis()*throttle, 
-							 -oi.getRightAxis()*throttle);
-	} else {
-		legsDrive.legsDrive(-oi.getLeftAxis()*throttle, 
-				 			-oi.getRightAxis()*throttle);
-	}
+		throttle = Math.abs(oi.getZThrottle());
+		
+		if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
+			driveTrain.tankDrive(-oi.getLeftAxis()*throttle, 
+								 -oi.getRightAxis()*throttle);
+		} /*else {
+			legsDrive.legsDrive(-oi.getLeftAxis()*throttle, 
+					 			-oi.getRightAxis()*throttle);
+		}*/
 	}
 
 	@Override

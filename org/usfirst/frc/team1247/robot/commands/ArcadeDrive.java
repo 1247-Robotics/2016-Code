@@ -16,20 +16,20 @@ public class ArcadeDrive extends BaseCommand {
 		throttle = 1.0;
 		
 		requires(driveTrain);
-		requires(legsDrive);
+	//	requires(legsDrive);
 	}
 
 	@Override
 	protected void execute() {
-	throttle = Math.abs(oi.getZThrottle());
-	
-	if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
-		driveTrain.arcadeDrive(-oi.getLeftAxis()*throttle, 
-							   -oi.getRightAxis()*throttle);
-	} else {
-		legsDrive.legsArcadeDrive(-oi.getLeftAxis()*throttle, 
-				 				  -oi.getRightAxis()*throttle);
-	}
+		throttle = Math.abs(oi.getZThrottle());
+		
+		if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
+			driveTrain.arcadeDrive(-oi.getLeftAxis()*throttle, 
+								   -oi.getRightAxis()*throttle);
+		} /*else {
+			legsDrive.legsArcadeDrive(-oi.getLeftAxis()*throttle, 
+					 				  -oi.getRightAxis()*throttle);
+		}*/
 	}
 
 	@Override
