@@ -23,7 +23,7 @@ public class LegsDrive extends BaseCommand{
 	throttle = Math.abs(oi.getZThrottle());
 	
 	legsDrive.legsDrive(-oi.getLeftAxis()*throttle, 
-							 -oi.getRightAxis()*throttle);
+						-oi.getRightAxis()*throttle);
 	}
 
 	@Override

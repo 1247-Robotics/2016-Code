@@ -29,8 +29,15 @@ public class DriveTrain extends Subsystem{
 	
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new TankDrive());
-		setDefaultCommand(new ArcadeDrive());
+		if (RobotMap.DRIVEMODE == RobotMap.TANK_DRIVE) {
+			
+			setDefaultCommand(new TankDrive());
+		
+		} else {
+	
+			setDefaultCommand(new ArcadeDrive());
+		
+		}
 	}
 	
 	public void tankDrive(double left, double right) {

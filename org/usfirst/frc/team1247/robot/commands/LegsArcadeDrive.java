@@ -8,23 +8,22 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArcadeDrive extends BaseCommand {
+public class LegsArcadeDrive extends BaseCommand {
 	
 	private double throttle;
 	
-	public ArcadeDrive() {
+	public LegsArcadeDrive() {
 		throttle = 1.0;
 		
-		requires(driveTrain);
-
+		requires(legsDrive);
 	}
 
 	@Override
 	protected void execute() {
 		throttle = Math.abs(oi.getZThrottle());
 		
-		driveTrain.arcadeDrive(-oi.getYAxis()*throttle, 
-							   -oi.getXAxis()*throttle);
+		legsDrive.legsArcadeDrive(-oi.getYAxis()*throttle, 
+					 			  -oi.getXAxis()*throttle);
 	}
 
 	@Override
