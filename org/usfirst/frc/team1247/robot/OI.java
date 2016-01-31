@@ -50,12 +50,26 @@ public class OI {
 	
 	public double getXAxis() {
 		
-		return leftJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
+		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK) {
+		
+			return leftJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
+		
+		} else {
+			
+			return xboxJoystick.getRawAxis(RobotMap.XBOX_XAXIS_ID);
+		}
 	}
 	
 	public double getYAxis() {
 		
-		return leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK) {
+		
+			return leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+		
+		} else {
+			
+			return xboxJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
+		}
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------

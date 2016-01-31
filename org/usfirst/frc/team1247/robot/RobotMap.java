@@ -46,6 +46,8 @@ public class RobotMap {
 	// Drive
 	public static final int XBOX_LEFT_YAXIS_ID = 1;
 	public static final int XBOX_RIGHT_YAXIS_ID = 5;
+	public static final int XBOX_XAXIS_ID = 0;
+	public static final int XBOX_YAXIS_ID = 1;
 	
 	//Pneumatic legs
 	public static final int XBOX_PNEUMATICS_RTRIGGER_ID = 3;
@@ -152,5 +154,5 @@ public class RobotMap {
 	public static final int JOYSTICK = 2;
 	public static final int SNES_CONTROLLER = 3;
 	//Which one are we using?
-	public static final int DRIVE_CONTROL = JOYSTICK;
+	public static final int DRIVE_CONTROL = XBOX_CONTROLLER;
 }
