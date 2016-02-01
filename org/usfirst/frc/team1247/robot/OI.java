@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.Joystick;
 public class OI {
     //// CREATING BUTTONS
     
+	ControllerType controller;
+	
 	Joystick leftJoystick;
 	Joystick rightJoystick; 
 	
@@ -25,6 +27,23 @@ public class OI {
 	
 	
 	public OI () {
+		
+		controller = ControllerType.XBOX_CONTROLLER;
+		
+		switch (controller){
+		case XBOX_CONTROLLER:
+			xboxJoystick = new Joystick(RobotMap.XBOX_ID);
+			break;
+		case JOYSTICK:
+			leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
+			rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
+			break;
+		case SNES_CONTROLLER:
+			snesJoystick = new Joystick(RobotMap.SNES_ID);
+			break;
+		}
+		
+		
 		
 		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
 			
