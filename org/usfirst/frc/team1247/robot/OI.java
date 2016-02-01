@@ -26,26 +26,7 @@ public class OI {
 	
 	
 	
-	public OI () {
-		
-		//AH
-		controller = ControllerType.XBOX_CONTROLLER;
-		
-		switch (controller){
-		case XBOX_CONTROLLER:
-			xboxJoystick = new Joystick(RobotMap.XBOX_ID);
-			break;
-		case JOYSTICK:
-			leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
-			rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
-			break;
-		case SNES_CONTROLLER:
-			snesJoystick = new Joystick(RobotMap.SNES_ID);
-			break;
-		}
-		
-		
-		
+	public OI () {		
 		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
 			
 			leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
