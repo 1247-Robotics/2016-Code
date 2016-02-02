@@ -1,5 +1,9 @@
  package org.usfirst.frc.team1247.robot;
 
+import org.usfirst.frc.team1247.robot.utils.ControllerType;
+import org.usfirst.frc.team1247.robot.utils.DriveType;
+import org.usfirst.frc.team1247.robot.utils.DriveMode;
+
 import edu.wpi.first.wpilibj.Joystick;
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -9,6 +13,8 @@ public class OI {
     //// CREATING BUTTONS
     
 	ControllerType controller;
+	DriveType driveType;
+	DriveMode driveMode;
 	
 	Joystick leftJoystick;
 	Joystick rightJoystick; 
@@ -25,21 +31,18 @@ public class OI {
 //------------------------------------Controller type---------------------------------------------------------------------------------
 	
 	
-	
-	public OI () {		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
-			
-			leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
-	
-			rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
-			
-		} else if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-			
+	public OI () {	
+		
+		controller = ControllerType.XBOX_CONTROLLER;
+
+		switch (controller){
+		case XBOX_CONTROLLER:
 			xboxJoystick = new Joystick(RobotMap.XBOX_ID);
-			
-		} else {
-			
-			snesJoystick = new Joystick(RobotMap.SNES_ID);
+			break;
+		case JOYSTICK:
+			leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
+			rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
+			break;
 		}
 	}
 	
@@ -50,45 +53,56 @@ public class OI {
 	
 	
 	public double getXAxis() {
+		double axisValue = 0;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK) {
-		
-			return leftJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
-		
-		} else {
-			
-			return xboxJoystick.getRawAxis(RobotMap.XBOX_XAXIS_ID);
+		switch(this.controller){
+		case XBOX_CONTROLLER:
+			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_XAXIS_ID);
+			 break;
+		case JOYSTICK:
+			axisValue = leftJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
+			break;
+		default:
+			axisValue = 0; //bad stuff happened, let the crying begin
+			break;
 		}
+		return axisValue;
 	}
 	
 	public double getYAxis() {
+		double axisValue = 0;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK) {
-		
-			return leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
-		
-		} else {
-			
-			return xboxJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
+		switch(this.controller){
+		case XBOX_CONTROLLER:
+			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
+			 break;
+		case JOYSTICK:
+			axisValue = leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+			break;
+		default:
+			axisValue = 0; //bad stuff happened, let the crying begin
+			break;
 		}
+		return axisValue;
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------
 	
 	public double getLeftAxis() {
+		double axisValue = 0;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
-		
-			return leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
-			
-		} else if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-			
-			return xboxJoystick.getRawAxis(RobotMap.XBOX_LEFT_YAXIS_ID);
-			
-		} else { 
-			
-			return snesJoystick.getRawAxis(RobotMap.SNES_LEFT_YAXIS_ID);
+		switch(this.controller){
+		case XBOX_CONTROLLER:
+			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_LEFT_YAXIS_ID);
+			 break;
+		case JOYSTICK:
+			axisValue = leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+			break;
+		default:
+			axisValue = 0; //bad stuff happened, let the crying begin
+			break;
 		}
+		return axisValue;
 	}
 	
 	
@@ -96,34 +110,20 @@ public class OI {
 	
 	
 	public double getRightAxis() {
+		double axisValue = 0;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
-		
-			return rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
-			
-		} else if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-		
-			return xboxJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
-			
-		} else { 
-			
-			double axisValue;
-		
-			if (snesJoystick.getRawButton(RobotMap.SNES_X_BUTTON_ID)){
-			
-				axisValue = 1;
-				
-			} else if (snesJoystick.getRawButton(RobotMap.SNES_Y_BUTTON_ID)){
-			
-				axisValue = -1;
-				
-			} else {
-			
-				axisValue = 0;
-			}
-			
-			return axisValue;
+		switch(this.controller){
+		case XBOX_CONTROLLER:
+			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
+			 break;
+		case JOYSTICK:
+			axisValue = rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+			break;
+		default:
+			axisValue = 0; //bad stuff happened, let the crying begin
+			break;
 		}
+		return axisValue;
 	}
 	
 	
@@ -132,21 +132,18 @@ public class OI {
 	
 	
 	public double getZThrottle() {
+		double throttle = 0;
 		
-		double throttle;
-		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.JOYSTICK){
-			
+		switch(this.controller){
+		case JOYSTICK:
 			throttle = rightJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
-			
 			throttle = -0.60*throttle + 1;
-			
-		} else {
-		
+			break;
+		default:
 			throttle = RobotMap.CONTROLLER_THROTTLE;
+			break;
 		}
-	
-		return throttle;			
+		return throttle;
 	}
 	
 	
@@ -158,36 +155,38 @@ public class OI {
 
 	
 	public boolean getFrontLeftPneumaticsButton(){
-		
 		boolean pressed = false;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-		
+		switch(this.controller){
+		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_LEFT_BUTTON_ID);
-		
-		} else {
-		
+			break;
+		case JOYSTICK:
 			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_LEFT_BUTTON_ID);
+			break;
+		default:
+			pressed = false;
+			break;
 		}
-		
 		return pressed;
 	}
 
 	
 	
 	public boolean getFrontRightPneumaticsButton(){
-		
 		boolean pressed = false;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-		
+		switch(this.controller){
+		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_BUTTON_ID);
-		
-		} else {
-		
+			break;
+		case JOYSTICK:
 			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_RIGHT_BUTTON_ID);
+			break;
+		default:
+			pressed = false;
+			break;
 		}
-	
 		return pressed;
 	}
 	
@@ -195,87 +194,86 @@ public class OI {
 	
 	
 	public boolean getRearLeftPneumaticsButton(){
-		
 		boolean pressed = false;
-		
 		double triggerValue = 0;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-		
+		switch(this.controller){
+		case XBOX_CONTROLLER:
 			triggerValue = xboxJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_LTRIGGER_ID);
-		
-		if (triggerValue > 0){
-			
-			pressed = true;
-			}	
-		
-		} else {
-		
+			if (triggerValue > 0){
+				pressed = true;
+			}
+			break;
+		case JOYSTICK:
 			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_REAR_LEFT_BUTTON_ID);
+			break;
+		default:
+			pressed = false;
+			break;
 		}
-		
 		return pressed;
-		}
+	}
 	
 	
 	
 	
 	public boolean getRearRightPneumaticsButton(){
-		
 		boolean pressed = false;
+		double triggerValue = 0;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-		
-			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
-		
-		} else {
-		
+		switch(this.controller){
+		case XBOX_CONTROLLER:
+			triggerValue = xboxJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
+			if (triggerValue > 0){
+				pressed = true;
+			}
+			break;
+		case JOYSTICK:
 			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_REAR_RIGHT_BUTTON_ID);
+		default:
+			pressed = false;
+			break;
 		}
-		
 		return pressed;
-		}
+	}
 	
 	
 	
 //---------------------------------------------------Leg Toggle Button---------------------------------------------------------------
 	
 	
-	public void getLegToggleButton(){
-		
+	public boolean getLegToggleButton(){
 		boolean pressed = false;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-		
+		switch(this.controller){
+		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_LEG_TOGGLE_BUTTON_ID);
-			
 			if (pressed){
-				
-				if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
-			
-					RobotMap.DRIVETYPE = RobotMap.LEGSDRIVE;
-				
-				} else {
-				
-					RobotMap.DRIVETYPE = RobotMap.DRIVETRAIN;
+				switch(this.driveType){
+				case DRIVETRAIN:
+					this.driveType = DriveType.LEGSDRIVE;
+					break;
+				default:
+					this.driveType = DriveType.DRIVETRAIN;
+					break;
 				}
 			}
-		} else {
-		
+			break;
+		case JOYSTICK:
 			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_LEG_TOGGLE_BUTTON_ID);
-		
 			if (pressed){
-			
-				if (RobotMap.DRIVETYPE == RobotMap.DRIVETRAIN){
-			
-					RobotMap.DRIVETYPE = RobotMap.LEGSDRIVE;
-				
-				} else {
-				
-					RobotMap.DRIVETYPE = RobotMap.DRIVETRAIN;
+				switch(this.driveType){
+				case DRIVETRAIN:
+					this.driveType = DriveType.LEGSDRIVE;
+					break;
+				default:
+					this.driveType = DriveType.DRIVETRAIN;
+					break;
 				}
 			}
+			break;
 		}
+		return pressed;
 	}
 	
 	
@@ -283,34 +281,31 @@ public class OI {
 		
 	
 	public boolean getSuctionButton(){
-		
 		boolean pressed = false;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-			
+		switch(this.controller){
+		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_SUCTION_BUTTON_ID);
-		
-		} else {
-			
-			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);	
+			break;
+		case JOYSTICK:
+			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);
+			break;
 		}
-		
 		return pressed;
 	}
 	
 	
 	
 	public boolean getReverseSuctionButton(){
-		
 		boolean pressed = false;
 		
-		if (RobotMap.DRIVE_CONTROL == RobotMap.XBOX_CONTROLLER){
-		
+		switch(this.controller){
+		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_REVERSE_SUCTION_BUTTON_ID);
-		
-		} else {
-		
-			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);
+			break;
+		case JOYSTICK:
+			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_REVERSE_SUCTION_BUTTON_ID);
+			break;
 		}
 		return pressed;
 	}
