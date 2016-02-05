@@ -2,59 +2,45 @@ package org.usfirst.frc.team1247.robot.subsystems;
  
 import org.usfirst.frc.team1247.robot.RobotMap;
 import org.usfirst.frc.team1247.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team1247.robot.utils.LegRegion;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
+ * 
  *
  */
 public class Legs extends Subsystem {
-	 
-		private Solenoid frontRightLegSolenoid;
-	    private Solenoid frontLeftLegSolenoid;
-	    private Solenoid rearRightLegSolenoid;
-	    private Solenoid rearLeftLegSolenoid;
-	    
+
+	
+	private HashMap<LegRegion, Solenoid> solenoids;
+	
     public void initDefaultCommand() {
-    	frontRightLegSolenoid = new Solenoid(RobotMap.FRONT_RIGHT_LEG_SOLENOID_CHANNEL);
-    	frontLeftLegSolenoid = new Solenoid(RobotMap.FRONT_LEFT_LEG_SOLENOID_CHANNEL);
-    	rearRightLegSolenoid = new Solenoid(RobotMap.REAR_RIGHT_LEG_SOLENOID_CHANNEL);
-    	rearLeftLegSolenoid = new Solenoid(RobotMap.REAR_LEFT_LEG_SOLENOID_CHANNEL);
-    	
-    }
-    
-    public void extendLeg(int leg){
-    	if (leg == RobotMap.FRONT_RIGHT_LEG){
-    		frontRightLegSolenoid.set(true);
-    		}
-    	else if (leg == RobotMap.FRONT_LEFT_LEG){
-    		frontLeftLegSolenoid.set(true);
-    		}
-    	else if (leg == RobotMap.REAR_RIGHT_LEG){
-    		rearRightLegSolenoid.set(true);
-    		}
-    	else if (leg == RobotMap.REAR_LEFT_LEG){
-    		rearLeftLegSolenoid.set(true);
-    		}
-    	}
-    
-    public void retractLeg(int leg){
-    	if (leg == RobotMap.FRONT_RIGHT_LEG){
-    		frontRightLegSolenoid.set(false);
-    	}
-    	if (leg == RobotMap.FRONT_LEFT_LEG){
-    		frontLeftLegSolenoid.set(false);
-    	}
-    	if (leg == RobotMap.REAR_RIGHT_LEG){
-    		rearRightLegSolenoid.set(false);
-    	}
-    	if (leg == RobotMap.REAR_LEFT_LEG){
-    		rearLeftLegSolenoid.set(false);
-    	}
+        solenoids = new HashMap<LegRegion, Solenoid>();
+
+        solenoids.put(LegRegion.FRONT_RIGHT, new Solenoid(RobotMap.FRONT_RIGHT_LEG_SOLENOID_CHANNEL));
+        solenoids.put(LegRegion.FRONT_LEFT, new Solenoid(RobotMap.FRONT_LEFT_LEG_SOLENOID_CHANNEL));
+        solenoids.put(LegRegion.REAR_RIGHT, new Solenoid(RobotMap.REAR_RIGHT_LEG_SOLENOID_CHANNEL));
+        solenoids.put(LegRegion.REAR_LEFT, new Solenoid(RobotMap.REAR_LEFT_LEG_SOLENOID_CHANNEL));
+
+     }
+
+     public void extendLeg(LegRegion leg){
+       for (Map.Entry<LegRegion, Solenoid> entry: solenoids.entrySet()) {
+          if (entry.getKey() == leg) entry.getValue().set(true);
+       }
     }
 
+     public void retractLeg(LegRegion leg){
+       for (Map.Entry<LegRegion, Solenoid> entry: solenoids.entrySet()) {
+          if (entry.getKey() == leg) entry.getValue().set(false);
+       }
+     }
 }
 

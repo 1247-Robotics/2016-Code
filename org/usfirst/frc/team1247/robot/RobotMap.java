@@ -147,7 +147,7 @@ public class RobotMap {
 	//TankDrive or ArcadeDrive
 	public static final int TANK_DRIVE = 1;
 	public static final int ARCADE_DRIVE = 2;
-	public static final int DRIVEMODE = TANK_DRIVE;
+	public static final int DRIVEMODE = ARCADE_DRIVE;
 //----------------------------------------------------------------------------------------------------------------------------------
 	//Joysticks, Xbox or Snes controller. Just choose integer
 	public static final int XBOX_CONTROLLER = 1;

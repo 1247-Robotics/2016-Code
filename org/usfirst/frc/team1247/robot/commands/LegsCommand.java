@@ -4,6 +4,7 @@ import org.usfirst.frc.team1247.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team1247.robot.OI;
 import org.usfirst.frc.team1247.robot.RobotMap;
 import org.usfirst.frc.team1247.robot.subsystems.Legs;
+import org.usfirst.frc.team1247.robot.utils.LegRegion;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -22,34 +23,34 @@ public class LegsCommand extends BaseCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	legs.retractLeg(RobotMap.FRONT_RIGHT_LEG);
-    	legs.retractLeg(RobotMap.FRONT_LEFT_LEG);
-    	legs.retractLeg(RobotMap.REAR_RIGHT_LEG);
-    	legs.retractLeg(RobotMap.REAR_LEFT_LEG);
+    	legs.retractLeg(LegRegion.FRONT_RIGHT);
+    	legs.retractLeg(LegRegion.FRONT_LEFT);
+    	legs.retractLeg(LegRegion.REAR_RIGHT);
+    	legs.retractLeg(LegRegion.REAR_LEFT);
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
     	if (oi.getFrontRightPneumaticsButton()) {
-    		legs.extendLeg(RobotMap.FRONT_RIGHT_LEG);
+    		legs.extendLeg(LegRegion.FRONT_RIGHT);
     	} else{
-    		legs.retractLeg(RobotMap.FRONT_RIGHT_LEG);
+    		legs.retractLeg(LegRegion.FRONT_RIGHT);
     	}
     	if (oi.getFrontLeftPneumaticsButton()) {
-    		legs.extendLeg(RobotMap.FRONT_LEFT_LEG);
+    		legs.extendLeg(LegRegion.FRONT_LEFT);
     	} else{
-    		legs.retractLeg(RobotMap.FRONT_LEFT_LEG);
+    		legs.retractLeg(LegRegion.FRONT_LEFT);
     	} 
     	if (oi.getRearRightPneumaticsButton()) {
-    		legs.extendLeg(RobotMap.REAR_RIGHT_LEG);
+    		legs.extendLeg(LegRegion.REAR_RIGHT);
     	} else{
-    		legs.retractLeg(RobotMap.REAR_RIGHT_LEG);
+    		legs.retractLeg(LegRegion.REAR_RIGHT);
     	}
     	if (oi.getRearLeftPneumaticsButton()) {
-    		legs.extendLeg(RobotMap.REAR_LEFT_LEG);
+    		legs.extendLeg(LegRegion.REAR_LEFT);
     	} else{
-    		legs.retractLeg(RobotMap.REAR_LEFT_LEG);
+    		legs.retractLeg(LegRegion.REAR_LEFT);
     	}
     }
 
