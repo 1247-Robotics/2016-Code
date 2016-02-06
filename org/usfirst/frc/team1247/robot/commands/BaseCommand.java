@@ -63,6 +63,7 @@ public abstract class BaseCommand extends Command {
 		pneumatics = new Pneumatics();
 		arm = new Arm();
 		suction = new Suction();
+		legs = new Legs();
 		//liftSys = new Lift();
 		
 		//displays stuff on smartdashboard

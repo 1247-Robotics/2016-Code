@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1247.robot.commands;
 
+import org.usfirst.frc.team1247.robot.commands.BaseCommand;
 import org.usfirst.frc.team1247.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team1247.robot.OI;
 import org.usfirst.frc.team1247.robot.RobotMap;
@@ -18,15 +19,19 @@ public class LegsCommand extends BaseCommand {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(legs);
-    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("retract legs initialization");
+    	try{
     	legs.retractLeg(LegRegion.FRONT_RIGHT);
     	legs.retractLeg(LegRegion.FRONT_LEFT);
     	legs.retractLeg(LegRegion.REAR_RIGHT);
     	legs.retractLeg(LegRegion.REAR_LEFT);
+    	} catch(Exception e) {
+    		System.out.println("Problem initializing retract leg: " + e.getMessage());
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -34,6 +39,7 @@ public class LegsCommand extends BaseCommand {
     protected void execute() {
     	if (oi.getFrontRightPneumaticsButton()) {
     		legs.extendLeg(LegRegion.FRONT_RIGHT);
+    		System.out.printf("Leg extend was called correctly in LegsCommand");
     	} else{
     		legs.retractLeg(LegRegion.FRONT_RIGHT);
     	}

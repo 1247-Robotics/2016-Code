@@ -62,6 +62,8 @@ public class DriveTrain extends Subsystem{
 	}
 
 	public void arcadeDrive(double left, double right) {
+	//	System.out.println("Arcade Drive did a thing.");
 		drive.arcadeDrive(left, right);
+	
 	}
 }
