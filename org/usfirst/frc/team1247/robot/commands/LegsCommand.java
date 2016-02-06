@@ -37,6 +37,8 @@ public class LegsCommand extends BaseCommand {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+    	System.out.println("executing moving the legs");
+    	try {
     	if (oi.getFrontRightPneumaticsButton()) {
     		legs.extendLeg(LegRegion.FRONT_RIGHT);
     		System.out.printf("Leg extend was called correctly in LegsCommand");
@@ -57,6 +59,9 @@ public class LegsCommand extends BaseCommand {
     		legs.extendLeg(LegRegion.REAR_LEFT);
     	} else{
     		legs.retractLeg(LegRegion.REAR_LEFT);
+    	}
+    	} catch(Exception e){
+    		System.out.println("Problem initializing leg movement execute: " + e.getMessage());
     	}
     }
 
