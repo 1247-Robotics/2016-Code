@@ -7,6 +7,7 @@ package org.usfirst.frc.team1247.robot;
  */
 public class RobotMap {
 	//Magic numbers go here!	
+	public static final int ARDUINO = 0;
 	public static final int SNES_ID = 0;
 	public static final int XBOX_ID = 0;
 	public static final int JOYSTICK_LEFT_ID = 1;
@@ -85,7 +86,13 @@ public class RobotMap {
 	public static final int SNES_TOTE_UP_BUTTON_ID = 1;
 	public static final int SNES_TOTE_DOWN_BUTTON_ID = 4;
 	public static final int SNES_CAN_UP_BUTTON_ID = 8;
-	public static final int SNES_CAN_DOWN_BUTTON_ID = 7;
+
+
+//-------------------------------------------------ARDUINO--------------------------------------------------------------------------
+	
+	public static final int ARDUINO_DRIVE_MODE_BUTTON = 1;
+	public static final int ARDUINO_CONTROLLER_BUTTON = 2;
+	
 	
 //----------------------------------------------------------------------------------------------------------------------------------
 	
@@ -108,10 +115,10 @@ public class RobotMap {
 	
 	//Pneumatics
 	public static final int COMPRESSOR_CHANNEL = 0;
-	public static final int FRONT_RIGHT_LEG_SOLENOID_CHANNEL = 1;
-	public static final int FRONT_LEFT_LEG_SOLENOID_CHANNEL = 2;
-	public static final int REAR_RIGHT_LEG_SOLENOID_CHANNEL = 3;
-	public static final int REAR_LEFT_LEG_SOLENOID_CHANNEL = 4;
+	public static final int FRONT_RIGHT_LEG_SOLENOID_CHANNEL = 0;
+	public static final int FRONT_LEFT_LEG_SOLENOID_CHANNEL = 1;
+	public static final int REAR_RIGHT_LEG_SOLENOID_CHANNEL = 2;
+	public static final int REAR_LEFT_LEG_SOLENOID_CHANNEL = 3;
 	public static final int FRONT_RIGHT_LEG = 1;
 	public static final int FRONT_LEFT_LEG = 2;
 	public static final int REAR_RIGHT_LEG = 3;
@@ -138,7 +145,7 @@ public class RobotMap {
 	public static final int DIGITAL_INPUT_BOTTOM_ID = 0;
 	
 //----------------------------------------------------------------------------------------------------------------------------------
-	
+/*	
 	//DriveTrain or LegsDrive
 	public static final int DRIVETRAIN = 1;
 	public static final int LEGSDRIVE = 2;
@@ -154,5 +161,5 @@ public class RobotMap {
 	public static final int JOYSTICK = 2;
 	public static final int SNES_CONTROLLER = 3;
 	//Which one are we using?
-	public static final int DRIVE_CONTROL = XBOX_CONTROLLER;
+	public static final int DRIVE_CONTROL = XBOX_CONTROLLER; */
 }

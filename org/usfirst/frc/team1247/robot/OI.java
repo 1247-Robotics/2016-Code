@@ -14,10 +14,12 @@ public class OI {
     
 	ControllerType controller;
 	DriveType driveType;
-	DriveMode driveMode;
+	public static DriveMode driveMode;
 	
 	Joystick leftJoystick;
 	Joystick rightJoystick; 
+	
+	Joystick arduino;
 	
 	Joystick snesJoystick;
 	
@@ -244,12 +246,13 @@ public class OI {
 	
 	public boolean getLegToggleButton(){
 		boolean pressed = false;
+		driveType = DriveType.DRIVETRAIN;
 		
 		switch(this.controller){
 		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_LEG_TOGGLE_BUTTON_ID);
 			if (pressed){
-				switch(this.driveType){
+				switch(driveType){
 				case DRIVETRAIN:
 					this.driveType = DriveType.LEGSDRIVE;
 					break;
@@ -262,7 +265,7 @@ public class OI {
 		case JOYSTICK:
 			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_LEG_TOGGLE_BUTTON_ID);
 			if (pressed){
-				switch(this.driveType){
+				switch(driveType){
 				case DRIVETRAIN:
 					this.driveType = DriveType.LEGSDRIVE;
 					break;
@@ -309,6 +312,31 @@ public class OI {
 		}
 		return pressed;
 	}
+	
+//---------------------------------------------Drive Mode----------------------------------------------------------------------------
+
+	public void setDriveMode() {
+		
+		if (arduino.getRawButton(RobotMap.ARDUINO_DRIVE_MODE_BUTTON)){
+			this.driveMode = DriveMode.ARCADE_DRIVE;
+		} else {
+			this.driveMode = DriveMode.TANK_DRIVE;
+				
+		}
+	}
+	
+//-------------------------------------------Controller Type-------------------------------------------------------------------------
+	
+	public void setControllerType() {
+		
+		if (arduino.getRawButton(RobotMap.ARDUINO_CONTROLLER_BUTTON)) {
+			this.controller = ControllerType.XBOX_CONTROLLER;
+		} else {
+			this.controller = ControllerType.JOYSTICK;
+		}
+				
+	}
+	
 }
 	
 
