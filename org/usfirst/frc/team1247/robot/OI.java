@@ -34,7 +34,7 @@ public class OI {
 	
 	
 	public OI () {	
-		
+		System.out.println("OI initialization");
 		controller = ControllerType.XBOX_CONTROLLER;
 
 		switch (controller){

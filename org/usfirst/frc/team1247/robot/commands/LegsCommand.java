@@ -16,6 +16,7 @@ public class LegsCommand extends BaseCommand {
 
 	
     public LegsCommand() {
+    	System.out.println("LegsCommand initialization");
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(legs);
@@ -23,7 +24,10 @@ public class LegsCommand extends BaseCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	super.initialize();
+    	
     	System.out.println("retract legs initialization");
+    	
     	try{
     	legs.retractLeg(LegRegion.FRONT_RIGHT);
     	legs.retractLeg(LegRegion.FRONT_LEFT);
@@ -37,11 +41,11 @@ public class LegsCommand extends BaseCommand {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    	System.out.println("executing moving the legs");
+    	//System.out.println("executing moving the legs");
     	try {
     	if (oi.getFrontRightPneumaticsButton()) {
     		legs.extendLeg(LegRegion.FRONT_RIGHT);
-    		System.out.printf("Leg extend was called correctly in LegsCommand");
+    		//System.out.printf("Leg extend was called correctly in LegsCommand");
     	} else{
     		legs.retractLeg(LegRegion.FRONT_RIGHT);
     	}
@@ -66,16 +70,21 @@ public class LegsCommand extends BaseCommand {
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+    @Override
+	protected boolean isFinished() {
+		// TODO Auto-generated method stub
+		return super.isFinished();
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+	@Override
+	protected void end() {
+		// TODO Auto-generated method stub
+		super.end();
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	@Override
+	protected void interrupted() {
+		// TODO Auto-generated method stub
+		super.interrupted();
+	}
 }

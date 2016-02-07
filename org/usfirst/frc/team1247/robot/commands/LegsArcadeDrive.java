@@ -13,6 +13,7 @@ public class LegsArcadeDrive extends BaseCommand {
 	private double throttle;
 	
 	public LegsArcadeDrive() {
+		System.out.println("LegsArcadeDrive initialization");
 		throttle = 1.0;
 		
 		requires(legsDrive);

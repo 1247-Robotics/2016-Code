@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class SuctionCommand extends BaseCommand {
 
     public SuctionCommand() {
+    	System.out.println("Suction initialization");
     	requires(suction);
     }
 

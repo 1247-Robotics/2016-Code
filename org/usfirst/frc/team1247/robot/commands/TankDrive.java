@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1247.robot.commands;
 
 import org.usfirst.frc.team1247.robot.OI;
-
 import org.usfirst.frc.team1247.robot.RobotMap;
 
 /**
@@ -16,6 +15,7 @@ public class TankDrive extends BaseCommand{
 	private double throttle;
 	
 	public TankDrive() {
+		System.out.println("TankDrive initialization");
 		throttle = 1.0;
 		
 		requires(driveTrain);

@@ -9,7 +9,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ArmCommand extends BaseCommand {
 		
 	public ArmCommand() {
-	    	requires(arm);	
+		System.out.println("Arm initialization");
+	    requires(arm);	
 	}
 	    
 	protected void initialize() {

@@ -1,6 +1,8 @@
 package org.usfirst.frc.team1247.robot.subsystems;
  
 import org.usfirst.frc.team1247.robot.RobotMap;
+import org.usfirst.frc.team1247.robot.commands.LegsCommand;
+import org.usfirst.frc.team1247.robot.commands.TankDrive;
 import org.usfirst.frc.team1247.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team1247.robot.utils.LegRegion;
 
@@ -21,8 +23,9 @@ public class Legs extends Subsystem {
 	
 	private HashMap<LegRegion, Solenoid> solenoids;
 	
-    public void initDefaultCommand() {
-        solenoids = new HashMap<LegRegion, Solenoid>();
+	public Legs(){
+		System.out.println("Legs initialization");
+		solenoids = new HashMap<LegRegion, Solenoid>();
         System.out.println("initializing solenoids");
         try{
         solenoids.put(LegRegion.FRONT_RIGHT, new Solenoid(RobotMap.FRONT_RIGHT_LEG_SOLENOID_CHANNEL));
@@ -33,7 +36,10 @@ public class Legs extends Subsystem {
         System.out.println("Problem Initializing Legs: " + e.getMessage());	
         
         }
-        
+	}
+	
+    public void initDefaultCommand() {
+    	setDefaultCommand(new LegsCommand());
      }
 
      public void extendLeg(LegRegion leg){

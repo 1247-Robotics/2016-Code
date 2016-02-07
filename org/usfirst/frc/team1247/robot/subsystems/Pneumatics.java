@@ -18,6 +18,7 @@ public class Pneumatics extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public Pneumatics(){
+    	System.out.println("Pneumatics initialization");
     	compressor = new Compressor(RobotMap.COMPRESSOR_CHANNEL);
     	compressor.setClosedLoopControl(true);
     	

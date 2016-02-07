@@ -13,6 +13,7 @@ public class ArcadeDrive extends BaseCommand {
 	private double throttle;
 	
 	public ArcadeDrive() {
+		System.out.println("ArcadeDrive initialization");
 		throttle = 1.0;
 		
 		requires(driveTrain);
@@ -21,6 +22,7 @@ public class ArcadeDrive extends BaseCommand {
 
 	@Override
 	protected void execute() {
+		//System.out.println("ArcadeDrive execution");
 		throttle = Math.abs(oi.getZThrottle());
 		
 		driveTrain.arcadeDrive(-oi.getYAxis()*throttle, 

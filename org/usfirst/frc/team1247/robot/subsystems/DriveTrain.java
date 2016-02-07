@@ -26,6 +26,7 @@ public class DriveTrain extends Subsystem{
 	private RobotDrive drive;
 	
 	public DriveTrain() {
+		System.out.println("DriveTrain initialization");
 		talonLeft = new Talon(RobotMap.TALON_CHANNEL_LEFT);
 		talonRight = new Talon(RobotMap.TALON_CHANNEL_RIGHT);
 		
@@ -33,7 +34,9 @@ public class DriveTrain extends Subsystem{
 		LiveWindow.addActuator("right","talonRight", talonRight);
 		
 		drive = new RobotDrive(talonLeft, talonRight);
+		drive.setSafetyEnabled(false);
 	}
+	
 	
 	@Override
 	protected void initDefaultCommand() {
