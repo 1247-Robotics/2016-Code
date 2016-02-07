@@ -26,7 +26,7 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    	System.out.println("Robot initialization");
+    	//System.out.println("Robot initialization");
 		oi = new OI();
 		BaseCommand.init();
 				

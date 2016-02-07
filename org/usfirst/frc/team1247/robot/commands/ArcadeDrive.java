@@ -13,7 +13,7 @@ public class ArcadeDrive extends BaseCommand {
 	private double throttle;
 	
 	public ArcadeDrive() {
-		System.out.println("ArcadeDrive initialization");
+		//System.out.println("ArcadeDrive initialization");
 		throttle = 1.0;
 		
 		requires(driveTrain);

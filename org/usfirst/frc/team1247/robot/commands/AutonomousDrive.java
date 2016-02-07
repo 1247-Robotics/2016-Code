@@ -23,7 +23,7 @@ public class AutonomousDrive extends BaseCommand {
 	 * @param duration The duration of the drive command in seconds.
 	 */
 	public AutonomousDrive(double speedLeft, double speedRight, double duration) {
-		System.out.println("AutonomouseDrive initialization");
+		//System.out.println("AutonomouseDrive initialization");
 		this.speedLeft = speedLeft;
 		this.speedRight = speedRight;
 		

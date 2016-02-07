@@ -16,7 +16,7 @@ public class LegsCommand extends BaseCommand {
 
 	
     public LegsCommand() {
-    	System.out.println("LegsCommand initialization");
+    	//System.out.println("LegsCommand initialization");
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(legs);
@@ -41,26 +41,32 @@ public class LegsCommand extends BaseCommand {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    	//System.out.println("executing moving the legs");
+    	//System.out.println("executing moving the legs\n");
     	try {
     	if (oi.getFrontRightPneumaticsButton()) {
     		legs.extendLeg(LegRegion.FRONT_RIGHT);
-    		//System.out.printf("Leg extend was called correctly in LegsCommand");
+    		System.out.printf("->Front Right");
     	} else{
     		legs.retractLeg(LegRegion.FRONT_RIGHT);
     	}
     	if (oi.getFrontLeftPneumaticsButton()) {
     		legs.extendLeg(LegRegion.FRONT_LEFT);
+    		System.out.printf("->Front Left");
+
     	} else{
     		legs.retractLeg(LegRegion.FRONT_LEFT);
     	} 
     	if (oi.getRearRightPneumaticsButton()) {
     		legs.extendLeg(LegRegion.REAR_RIGHT);
+    		System.out.printf("->Rear Right");
+
     	} else{
     		legs.retractLeg(LegRegion.REAR_RIGHT);
     	}
     	if (oi.getRearLeftPneumaticsButton()) {
     		legs.extendLeg(LegRegion.REAR_LEFT);
+    		System.out.printf("->Rear Left");
+
     	} else{
     		legs.retractLeg(LegRegion.REAR_LEFT);
     	}

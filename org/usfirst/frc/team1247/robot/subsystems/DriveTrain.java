@@ -26,7 +26,7 @@ public class DriveTrain extends Subsystem{
 	private RobotDrive drive;
 	
 	public DriveTrain() {
-		System.out.println("DriveTrain initialization");
+		//System.out.println("DriveTrain initialization");
 		talonLeft = new Talon(RobotMap.TALON_CHANNEL_LEFT);
 		talonRight = new Talon(RobotMap.TALON_CHANNEL_RIGHT);
 		

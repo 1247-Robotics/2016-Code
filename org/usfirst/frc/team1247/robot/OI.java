@@ -34,9 +34,12 @@ public class OI {
 	
 	
 	public OI () {	
-		System.out.println("OI initialization");
-		controller = ControllerType.XBOX_CONTROLLER;
+		//System.out.println("OI initialization");
+		arduino = new Joystick(RobotMap.ARDUINO_ID);
 
+		this.setControllerType();
+		this.setDriveMode();
+		
 		switch (controller){
 		case XBOX_CONTROLLER:
 			xboxJoystick = new Joystick(RobotMap.XBOX_ID);
@@ -208,6 +211,7 @@ public class OI {
 			break;
 		case JOYSTICK:
 			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_REAR_LEFT_BUTTON_ID);
+    		//System.out.printf("+> Rear Left");
 			break;
 		default:
 			pressed = false;
@@ -232,6 +236,8 @@ public class OI {
 			break;
 		case JOYSTICK:
 			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_REAR_RIGHT_BUTTON_ID);
+			//System.out.printf("+> Rear Right");
+			break;
 		default:
 			pressed = false;
 			break;
@@ -316,102 +322,31 @@ public class OI {
 //---------------------------------------------Drive Mode----------------------------------------------------------------------------
 
 	public void setDriveMode() {
-		
+		/*
 		if (arduino.getRawButton(RobotMap.ARDUINO_DRIVE_MODE_BUTTON)){
 			this.driveMode = DriveMode.ARCADE_DRIVE;
 		} else {
 			this.driveMode = DriveMode.TANK_DRIVE;
 				
 		}
+		*/
+		//this.driveMode = DriveMode.ARCADE_DRIVE;
+		this.driveMode = DriveMode.TANK_DRIVE;
+		
 	}
 	
 //-------------------------------------------Controller Type-------------------------------------------------------------------------
 	
 	public void setControllerType() {
-		
+		/*
 		if (arduino.getRawButton(RobotMap.ARDUINO_CONTROLLER_BUTTON)) {
 			this.controller = ControllerType.XBOX_CONTROLLER;
 		} else {
 			this.controller = ControllerType.JOYSTICK;
 		}
-				
+		*/
+		this.controller = ControllerType.JOYSTICK;
+		//this.controller = ControllerType.XBOX_CONTROLLER;
 	}
 	
 }
-	
-
-//---------------------------------------------Obsolete Lift--------------------------------------------------------------------------
-
-
-/*public boolean getLiftButton() {
-return rightJoystick.getRawButton(RobotMap.JOYSTICK_LIFT_BUTTON_ID);
-}
-
-public boolean getReverseLiftButton() {
-return leftJoystick.getRawButton(RobotMap.JOYSTICK_REVERSE_LIFT_BUTTON_ID);
-}
-
-public boolean getToteButton() {
-return rightJoystick.getRawButton(RobotMap.JOYSTICK_TOTE_UP_BUTTON_ID);
-}
-
-public boolean getCanButton() {
-return leftJoystick.getRawButton(RobotMap.JOYSTICK_CAN_UP_BUTTON_ID);
-}
-
-public boolean getToteButtonDown() {
-return rightJoystick.getRawButton(RobotMap.JOYSTICK_TOTE_DOWN_BUTTON_ID);
-}
-
-public boolean getCanButtonDown() {
-return leftJoystick.getRawButton(RobotMap.JOYSTICK_CAN_DOWN_BUTTON_ID);
-}*/
-
-	/*public boolean getXboxLiftButton () {
-		return xboxJoystick.getRawButton(RobotMap.XBOX_LIFT_BUTTON_ID);
-	}
-	
-	public boolean getXboxReverseLiftButton () {
-		return xboxJoystick.getRawButton(RobotMap.XBOX_REVERSE_BUTTON_ID);
-	}
-	
-	public boolean getXboxToteButton(){ 
-		return xboxJoystick.getRawButton(RobotMap.JOYSTICK_TOTE_UP_BUTTON_ID);
-	}
-	
-	public boolean getXboxToteButtonDown(){
-		return xboxJoystick.getRawButton(RobotMap.XBOX_TOTE_DOWN_BUTTON_ID);
-	}
-	
-	public boolean getXboxCanButton () {
-		return xboxJoystick.getRawButton(RobotMap.XBOX_CAN_UP_BUTTON_ID);
-	}
-	
-	public boolean getXboxCanButtonDown () {
-		return xboxJoystick.getRawButton(RobotMap.XBOX_CAN_DOWN_BUTON_ID);
-	}
-	
-	public boolean getSnesLiftButton () {
-		return snesJoystick.getRawButton(RobotMap.SNES_LIFT_BUTTON_ID);
-	}
-	
-	public boolean getSnesReverseLiftButton () {
-		return snesJoystick.getRawButton(RobotMap.SNES_REVERSE_LIFT_BUTTON_ID);
-	}
-	
-	public boolean getSnesToteButton () {
-		return snesJoystick.getRawButton(RobotMap.SNES_TOTE_UP_BUTTON_ID);
-	}
-	
-	public boolean getSnesToteButtonDown () {
-		return snesJoystick.getRawButton(RobotMap.SNES_TOTE_DOWN_BUTTON_ID);
-	}
-	
-	public boolean getSnesCanButton () {
-		return snesJoystick.getRawButton(RobotMap.SNES_CAN_UP_BUTTON_ID);
-	}
-	
-	public boolean getSnesCanButtonDown () {
-		return snesJoystick.getRawButton(RobotMap.SNES_CAN_DOWN_BUTTON_ID);
-	}
-}*/

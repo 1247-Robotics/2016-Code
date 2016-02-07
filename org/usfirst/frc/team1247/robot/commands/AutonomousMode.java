@@ -16,7 +16,7 @@ public class AutonomousMode extends CommandGroup {
 	 * Creates commands for autonomous mode.
 	 */
 	public AutonomousMode() {
-		System.out.println("Autonomouse initialization");
+		//System.out.println("Autonomouse initialization");
 		//Adds commands that autonomous will call
 		
 		/*addSequential(new AutonomousLift(LiftingState.CAN_DOWN));

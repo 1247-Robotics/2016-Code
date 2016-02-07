@@ -24,9 +24,9 @@ public class Legs extends Subsystem {
 	private HashMap<LegRegion, Solenoid> solenoids;
 	
 	public Legs(){
-		System.out.println("Legs initialization");
+		//System.out.println("Legs initialization");
 		solenoids = new HashMap<LegRegion, Solenoid>();
-        System.out.println("initializing solenoids");
+        //System.out.println("initializing solenoids");
         try{
         solenoids.put(LegRegion.FRONT_RIGHT, new Solenoid(RobotMap.FRONT_RIGHT_LEG_SOLENOID_CHANNEL));
         solenoids.put(LegRegion.FRONT_LEFT, new Solenoid(RobotMap.FRONT_LEFT_LEG_SOLENOID_CHANNEL));
@@ -43,7 +43,7 @@ public class Legs extends Subsystem {
      }
 
      public void extendLeg(LegRegion leg){
-   	  System.out.printf("Leg extend was called correctly for leg region %s\n", leg); 
+   	  //System.out.println("Leg extend was called correctly for leg region"); 
     	 try {
     	 for (Map.Entry<LegRegion, Solenoid> entry: solenoids.entrySet()) {
           if (entry.getKey() == leg){
@@ -56,7 +56,7 @@ public class Legs extends Subsystem {
      }
 
      public void retractLeg(LegRegion leg){
-    	 System.out.printf("Leg retract was called correctly for leg region %s\n", leg);
+    	 //System.out.println("Leg retract was called correctly for leg region");
     	 try {
     		 for (Map.Entry<LegRegion, Solenoid> entry: solenoids.entrySet()) {
     			 if (entry.getKey() == leg) entry.getValue().set(false);
