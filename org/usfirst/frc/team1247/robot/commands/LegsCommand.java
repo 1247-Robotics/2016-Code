@@ -26,7 +26,7 @@ public class LegsCommand extends BaseCommand {
     protected void initialize() {
     	super.initialize();
     	
-    	System.out.println("retract legs initialization");
+    	//tg6fr455System.out.println("retract legs initialization");
     	
     	try{
     	legs.retractLeg(LegRegion.FRONT_RIGHT);
@@ -45,27 +45,27 @@ public class LegsCommand extends BaseCommand {
     	try {
     	if (oi.getFrontRightPneumaticsButton()) {
     		legs.extendLeg(LegRegion.FRONT_RIGHT);
-    		System.out.printf("->Front Right");
+    		//System.out.printf("->Front Right");
     	} else{
     		legs.retractLeg(LegRegion.FRONT_RIGHT);
     	}
     	if (oi.getFrontLeftPneumaticsButton()) {
     		legs.extendLeg(LegRegion.FRONT_LEFT);
-    		System.out.printf("->Front Left");
+    		//System.out.printf("->Front Left");
 
     	} else{
     		legs.retractLeg(LegRegion.FRONT_LEFT);
     	} 
     	if (oi.getRearRightPneumaticsButton()) {
     		legs.extendLeg(LegRegion.REAR_RIGHT);
-    		System.out.printf("->Rear Right");
+    		//System.out.printf("->Rear Right");
 
     	} else{
     		legs.retractLeg(LegRegion.REAR_RIGHT);
     	}
     	if (oi.getRearLeftPneumaticsButton()) {
     		legs.extendLeg(LegRegion.REAR_LEFT);
-    		System.out.printf("->Rear Left");
+    		//System.out.printf("->Rear Left");
 
     	} else{
     		legs.retractLeg(LegRegion.REAR_LEFT);

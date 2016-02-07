@@ -40,6 +40,36 @@ public class OI {
 		this.setControllerType();
 		this.setDriveMode();
 		
+		switch(controller){
+		case XBOX_CONTROLLER:
+			switch(driveMode){
+			case TANK_DRIVE:
+				System.out.println("You are using a XBOX controller with Tank Drive.");
+				break;
+			case ARCADE_DRIVE:
+				System.out.println("You are using a XBOX controller with Arcade Drive.");
+				break;
+			default:
+				System.out.println("Something broke.");
+				break;
+			}
+		case JOYSTICK:
+			switch(driveMode){
+			case TANK_DRIVE:
+				System.out.println("You are using joysticks with Tank Drive.");
+				break;
+			case ARCADE_DRIVE:
+				System.out.println("You are using joysticks with Arcade Drive.");
+				break;
+			default:
+				System.out.println("Something broke..");
+				break;
+			}
+		default:
+			System.out.println("Something broke...");
+			break;
+		}
+		
 		switch (controller){
 		case XBOX_CONTROLLER:
 			xboxJoystick = new Joystick(RobotMap.XBOX_ID);
@@ -322,29 +352,29 @@ public class OI {
 //---------------------------------------------Drive Mode----------------------------------------------------------------------------
 
 	public void setDriveMode() {
-		/*
+		
 		if (arduino.getRawButton(RobotMap.ARDUINO_DRIVE_MODE_BUTTON)){
 			this.driveMode = DriveMode.ARCADE_DRIVE;
 		} else {
 			this.driveMode = DriveMode.TANK_DRIVE;
 				
 		}
-		*/
+		
 		//this.driveMode = DriveMode.ARCADE_DRIVE;
-		this.driveMode = DriveMode.TANK_DRIVE;
+		//this.driveMode = DriveMode.TANK_DRIVE;
 		
 	}
 	
 //-------------------------------------------Controller Type-------------------------------------------------------------------------
 	
 	public void setControllerType() {
-		/*
+		
 		if (arduino.getRawButton(RobotMap.ARDUINO_CONTROLLER_BUTTON)) {
 			this.controller = ControllerType.XBOX_CONTROLLER;
 		} else {
 			this.controller = ControllerType.JOYSTICK;
 		}
-		*/
+		
 		this.controller = ControllerType.JOYSTICK;
 		//this.controller = ControllerType.XBOX_CONTROLLER;
 	}
