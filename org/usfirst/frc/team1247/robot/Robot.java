@@ -61,6 +61,11 @@ public class Robot extends IterativeRobot {
         oi.setControllerType();
         oi.setDriveMode();
         
+        //***************very likely to break all the codes***************
+        //***This might fix the arduino switching drive types on enable***
+        BaseCommand.driveTrain.initDefaultCommand();
+        //********************End terrbile hack***************************
+        
         switch(OI.controller){
 		case XBOX_CONTROLLER:
 			switch(OI.driveMode){
