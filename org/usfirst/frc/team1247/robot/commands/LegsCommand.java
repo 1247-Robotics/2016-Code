@@ -26,7 +26,7 @@ public class LegsCommand extends BaseCommand {
     protected void initialize() {
     	super.initialize();
     	
-    	//tg6fr455System.out.println("retract legs initialization");
+    	//System.out.println("retract legs initialization");
     	
     	try{
     	legs.retractLeg(LegRegion.FRONT_RIGHT);

@@ -10,7 +10,7 @@ public class RobotMap {
 	// Magic numbers go here!
 	public static final int ARDUINO_ID = 3;
 	public static final int SNES_ID = 0;
-	public static final int XBOX_ID = 0;
+	public static final int XBOX_ID = 2;
 	public static final int JOYSTICK_LEFT_ID = 1;
 	public static final int JOYSTICK_RIGHT_ID = 0;
 	public static final int JOYSTICK_YAXIS_ID = 1;

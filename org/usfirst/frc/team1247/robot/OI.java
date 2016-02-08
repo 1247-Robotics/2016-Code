@@ -12,9 +12,11 @@ import edu.wpi.first.wpilibj.Joystick;
 public class OI {
     //// CREATING BUTTONS
     
-	ControllerType controller;
-	DriveType driveType;
+	public static ControllerType controller;
 	public static DriveMode driveMode;
+	
+	DriveType driveType;
+	
 	
 	Joystick leftJoystick;
 	Joystick rightJoystick; 
@@ -40,45 +42,12 @@ public class OI {
 		this.setControllerType();
 		this.setDriveMode();
 		
-		switch(controller){
-		case XBOX_CONTROLLER:
-			switch(driveMode){
-			case TANK_DRIVE:
-				System.out.println("You are using a XBOX controller with Tank Drive.");
-				break;
-			case ARCADE_DRIVE:
-				System.out.println("You are using a XBOX controller with Arcade Drive.");
-				break;
-			default:
-				System.out.println("Something broke.");
-				break;
-			}
-		case JOYSTICK:
-			switch(driveMode){
-			case TANK_DRIVE:
-				System.out.println("You are using joysticks with Tank Drive.");
-				break;
-			case ARCADE_DRIVE:
-				System.out.println("You are using joysticks with Arcade Drive.");
-				break;
-			default:
-				System.out.println("Something broke..");
-				break;
-			}
-		default:
-			System.out.println("Something broke...");
-			break;
-		}
 		
-		switch (controller){
-		case XBOX_CONTROLLER:
-			xboxJoystick = new Joystick(RobotMap.XBOX_ID);
-			break;
-		case JOYSTICK:
-			leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
-			rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
-			break;
-		}
+		xboxJoystick = new Joystick(RobotMap.XBOX_ID);
+	
+		leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
+		rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
+		
 	}
 	
 	
@@ -90,7 +59,7 @@ public class OI {
 	public double getXAxis() {
 		double axisValue = 0;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_XAXIS_ID);
 			 break;
@@ -107,7 +76,7 @@ public class OI {
 	public double getYAxis() {
 		double axisValue = 0;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
 			 break;
@@ -126,7 +95,7 @@ public class OI {
 	public double getLeftAxis() {
 		double axisValue = 0;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_LEFT_YAXIS_ID);
 			 break;
@@ -147,7 +116,7 @@ public class OI {
 	public double getRightAxis() {
 		double axisValue = 0;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
 			 break;
@@ -169,7 +138,7 @@ public class OI {
 	public double getZThrottle() {
 		double throttle = 0;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case JOYSTICK:
 			throttle = rightJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
 			throttle = -0.60*throttle + 1;
@@ -192,7 +161,7 @@ public class OI {
 	public boolean getFrontLeftPneumaticsButton(){
 		boolean pressed = false;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_LEFT_BUTTON_ID);
 			break;
@@ -211,7 +180,7 @@ public class OI {
 	public boolean getFrontRightPneumaticsButton(){
 		boolean pressed = false;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_BUTTON_ID);
 			break;
@@ -232,7 +201,7 @@ public class OI {
 		boolean pressed = false;
 		double triggerValue = 0;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			triggerValue = xboxJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_LTRIGGER_ID);
 			if (triggerValue > 0){
@@ -257,7 +226,7 @@ public class OI {
 		boolean pressed = false;
 		double triggerValue = 0;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			triggerValue = xboxJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
 			if (triggerValue > 0){
@@ -284,7 +253,7 @@ public class OI {
 		boolean pressed = false;
 		driveType = DriveType.DRIVETRAIN;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_LEG_TOGGLE_BUTTON_ID);
 			if (pressed){
@@ -322,7 +291,7 @@ public class OI {
 	public boolean getSuctionButton(){
 		boolean pressed = false;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_SUCTION_BUTTON_ID);
 			break;
@@ -338,7 +307,7 @@ public class OI {
 	public boolean getReverseSuctionButton(){
 		boolean pressed = false;
 		
-		switch(this.controller){
+		switch(OI.controller){
 		case XBOX_CONTROLLER:
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_REVERSE_SUCTION_BUTTON_ID);
 			break;
@@ -352,31 +321,31 @@ public class OI {
 //---------------------------------------------Drive Mode----------------------------------------------------------------------------
 
 	public void setDriveMode() {
-		
+		System.out.println("Set Drive");
 		if (arduino.getRawButton(RobotMap.ARDUINO_DRIVE_MODE_BUTTON)){
-			this.driveMode = DriveMode.ARCADE_DRIVE;
+			OI.driveMode = DriveMode.ARCADE_DRIVE;
 		} else {
-			this.driveMode = DriveMode.TANK_DRIVE;
+			OI.driveMode = DriveMode.TANK_DRIVE;
 				
 		}
 		
-		//this.driveMode = DriveMode.ARCADE_DRIVE;
-		//this.driveMode = DriveMode.TANK_DRIVE;
+		//OI.driveMode = DriveMode.ARCADE_DRIVE;
+		//OI.driveMode = DriveMode.TANK_DRIVE;
 		
 	}
 	
 //-------------------------------------------Controller Type-------------------------------------------------------------------------
 	
 	public void setControllerType() {
-		
+		System.out.println("Set Controller");
 		if (arduino.getRawButton(RobotMap.ARDUINO_CONTROLLER_BUTTON)) {
-			this.controller = ControllerType.XBOX_CONTROLLER;
+			OI.controller = ControllerType.XBOX_CONTROLLER;
 		} else {
-			this.controller = ControllerType.JOYSTICK;
+			OI.controller = ControllerType.JOYSTICK;
 		}
 		
-		this.controller = ControllerType.JOYSTICK;
-		//this.controller = ControllerType.XBOX_CONTROLLER;
+		//OI.controller = ControllerType.JOYSTICK;
+		//OI.controller = ControllerType.XBOX_CONTROLLER;
 	}
 	
 }

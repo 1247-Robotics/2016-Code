@@ -57,6 +57,39 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousMode != null) autonomousMode.cancel();
+        
+        oi.setControllerType();
+        oi.setDriveMode();
+        
+        switch(OI.controller){
+		case XBOX_CONTROLLER:
+			switch(OI.driveMode){
+			case TANK_DRIVE:
+				System.out.println("You are using a XBOX controller with Tank Drive.");
+				break;
+			case ARCADE_DRIVE:
+				System.out.println("You are using a XBOX controller with Arcade Drive.");
+				break;
+			default:
+				System.out.println(OI.driveMode);
+				break;
+			}
+		case JOYSTICK:
+			switch(OI.driveMode){
+			case TANK_DRIVE:
+				System.out.println("You are using joysticks with Tank Drive.");
+				break;
+			case ARCADE_DRIVE:
+				System.out.println("You are using joysticks with Arcade Drive.");
+				break;
+			default:
+				System.out.println(OI.driveMode);
+				break;
+			}
+		default:
+			System.out.println(OI.controller);
+			break;
+		}
     }
 
     /**b
