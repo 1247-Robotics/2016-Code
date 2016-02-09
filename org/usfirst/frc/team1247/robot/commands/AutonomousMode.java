@@ -19,10 +19,10 @@ public class AutonomousMode extends CommandGroup {
 		//System.out.println("Autonomouse initialization");
 		//Adds commands that autonomous will call
 		
-		/*addSequential(new AutonomousLift(LiftingState.CAN_DOWN));
+		//addSequential(new AutonomousLift(LiftingState.CAN_DOWN));
 		addSequential(new AutonomousDrive(0.5, 0.25));
-		addSequential(new AutonomousLift(LiftingState.CAN_UP));
-		addSequential(new AutonomousDrive(0.75, 2.5));*/
+		//addSequential(new AutonomousLift(LiftingState.CAN_UP));
+		addSequential(new AutonomousDrive(0.75, 2.5));
 		
 		//testing
 //		addSequential(new AutonomousDrive(0.75, 3.0));

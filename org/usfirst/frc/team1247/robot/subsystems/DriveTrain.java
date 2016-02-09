@@ -39,7 +39,7 @@ public class DriveTrain extends Subsystem{
 	
 	
 	@Override
-	protected void initDefaultCommand() {
+	public void initDefaultCommand() {
 		/*switch(OI.driveMode){
 		case TANK_DRIVE:
 			setDefaultCommand(new TankDrive());
