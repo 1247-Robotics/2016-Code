@@ -28,8 +28,7 @@ public class Legs extends Subsystem {
 		solenoids = new HashMap<LegRegion, Solenoid>();
         //System.out.println("initializing solenoids");
         try{
-        solenoids.put(LegRegion.FRONT_RIGHT, new Solenoid(RobotMap.FRONT_RIGHT_LEG_SOLENOID_CHANNEL));
-        solenoids.put(LegRegion.FRONT_LEFT, new Solenoid(RobotMap.FRONT_LEFT_LEG_SOLENOID_CHANNEL));
+        solenoids.put(LegRegion.FRONT, new Solenoid(RobotMap.FRONT_LEG_SOLENOID_CHANNEL));
         solenoids.put(LegRegion.REAR_RIGHT, new Solenoid(RobotMap.REAR_RIGHT_LEG_SOLENOID_CHANNEL));
         solenoids.put(LegRegion.REAR_LEFT, new Solenoid(RobotMap.REAR_LEFT_LEG_SOLENOID_CHANNEL));
         } catch(Exception e)  {
@@ -46,10 +45,10 @@ public class Legs extends Subsystem {
    	  //System.out.println("Leg extend was called correctly for leg region"); 
     	 try {
     	 for (Map.Entry<LegRegion, Solenoid> entry: solenoids.entrySet()) {
-          if (entry.getKey() == leg){
-        	  entry.getValue().set(true);
+    		 if (entry.getKey() == leg){
+    			 entry.getValue().set(true);
           		}
-    	 	}
+    	 	 }
        } catch(Exception e) {
         	  System.out.println("Leg Extension was not executed: " + e.getMessage());
           }

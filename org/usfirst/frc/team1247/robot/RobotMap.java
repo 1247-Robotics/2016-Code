@@ -24,8 +24,7 @@ public class RobotMap {
 	public static final int JOYSTICK_XAXIS_ID = 0;
 
 	// Joystick Pneumatic leg buttons
-	public static final int JOYSTICK_PNEUMATICS_FRONT_RIGHT_BUTTON_ID = 5;
-	public static final int JOYSTICK_PNEUMATICS_FRONT_LEFT_BUTTON_ID = 4;
+	public static final int JOYSTICK_PNEUMATICS_FRONT_BUTTON_ID = 3;
 	public static final int JOYSTICK_PNEUMATICS_REAR_RIGHT_BUTTON_ID = 2;
 	public static final int JOYSTICK_PNEUMATICS_REAR_LEFT_BUTTON_ID = 2;
 
@@ -48,7 +47,6 @@ public class RobotMap {
 	public static final int XBOX_PNEUMATICS_RTRIGGER_ID = 3;
 	public static final int XBOX_PNEUMATICS_LTRIGGER_ID = 2;
 	public static final int XBOX_PNEUMATICS_RIGHT_BUTTON_ID = 6;
-	public static final int XBOX_PNEUMATICS_LEFT_BUTTON_ID = 5;
 
 	// Leg toggle
 	public static final int XBOX_LEG_TOGGLE_BUTTON_ID = 1;
@@ -92,8 +90,7 @@ public class RobotMap {
 
 	// Pneumatics
 	public static final int COMPRESSOR_CHANNEL = 0;
-	public static final int FRONT_RIGHT_LEG_SOLENOID_CHANNEL = 1;
-	public static final int FRONT_LEFT_LEG_SOLENOID_CHANNEL = 3;
+	public static final int FRONT_LEG_SOLENOID_CHANNEL = 1;
 	public static final int REAR_RIGHT_LEG_SOLENOID_CHANNEL = 0;
 	public static final int REAR_LEFT_LEG_SOLENOID_CHANNEL = 2;
 	public static final int FRONT_RIGHT_LEG = 1;

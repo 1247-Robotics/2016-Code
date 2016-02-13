@@ -63,7 +63,7 @@ public class Robot extends IterativeRobot {
         
         //***************very likely to break all the codes***************
         //***This might fix the arduino switching drive types on enable***
-        BaseCommand.driveTrain.initDefaultCommand();
+        //BaseCommand.driveTrain.initDefaultCommand();
         //**************Be sure to run simulated match********************
         //********************End terrible hack***************************
         

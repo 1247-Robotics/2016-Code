@@ -29,8 +29,7 @@ public class LegsCommand extends BaseCommand {
     	//System.out.println("retract legs initialization");
     	
     	try{
-    	legs.retractLeg(LegRegion.FRONT_RIGHT);
-    	legs.retractLeg(LegRegion.FRONT_LEFT);
+    	legs.retractLeg(LegRegion.FRONT);
     	legs.retractLeg(LegRegion.REAR_RIGHT);
     	legs.retractLeg(LegRegion.REAR_LEFT);
     	} catch(Exception e) {
@@ -43,18 +42,12 @@ public class LegsCommand extends BaseCommand {
     protected void execute() {
     	//System.out.println("executing moving the legs\n");
     	try {
-    	if (oi.getFrontRightPneumaticsButton()) {
-    		legs.extendLeg(LegRegion.FRONT_RIGHT);
-    		//System.out.printf("->Front Right");
-    	} else{
-    		legs.retractLeg(LegRegion.FRONT_RIGHT);
-    	}
-    	if (oi.getFrontLeftPneumaticsButton()) {
-    		legs.extendLeg(LegRegion.FRONT_LEFT);
+    	if (oi.getFrontPneumaticsButton()) {
+    		legs.extendLeg(LegRegion.FRONT);
     		//System.out.printf("->Front Left");
 
     	} else{
-    		legs.retractLeg(LegRegion.FRONT_LEFT);
+    		legs.retractLeg(LegRegion.FRONT);
     	} 
     	if (oi.getRearRightPneumaticsButton()) {
     		legs.extendLeg(LegRegion.REAR_RIGHT);

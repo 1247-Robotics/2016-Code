@@ -158,26 +158,7 @@ public class OI {
 //-----------------------------------------Front--------------------------------------------------------------------------------------	
 
 	
-	public boolean getFrontLeftPneumaticsButton(){
-		boolean pressed = false;
-		
-		switch(OI.controller){
-		case XBOX_CONTROLLER:
-			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_LEFT_BUTTON_ID);
-			break;
-		case JOYSTICK:
-			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_LEFT_BUTTON_ID);
-			break;
-		default:
-			pressed = false;
-			break;
-		}
-		return pressed;
-	}
-
-	
-	
-	public boolean getFrontRightPneumaticsButton(){
+	public boolean getFrontPneumaticsButton(){
 		boolean pressed = false;
 		
 		switch(OI.controller){
@@ -185,7 +166,7 @@ public class OI {
 			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_BUTTON_ID);
 			break;
 		case JOYSTICK:
-			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_RIGHT_BUTTON_ID);
+			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_BUTTON_ID);
 			break;
 		default:
 			pressed = false;

@@ -25,7 +25,7 @@ public class AutonomousMode extends CommandGroup {
 		addSequential(new AutonomousDrive(0.75, 2.5));
 		
 		//testing
-//		addSequential(new AutonomousDrive(0.75, 3.0));
+		addSequential(new AutonomousDrive(0.75, 3.0));
 		
 		addSequential(new AutonomousDrive(.75, 1.5));
 		//addSequential(new AutonomousLift(LiftingState.TOTE_UP));

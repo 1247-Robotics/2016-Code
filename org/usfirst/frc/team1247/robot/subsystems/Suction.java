@@ -8,6 +8,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
+
+
+// For getting and releasing balls.
 public class Suction extends Subsystem {
    
 	private Talon suctionTalon;
