@@ -51,7 +51,7 @@ public class DriveTrain extends Subsystem{
 		
 		if (OI.driveMode == DriveMode.TANK_DRIVE) {
 			
-			setDefaultCommand(new TankDrive());
+;
 		
 		} else {
 	

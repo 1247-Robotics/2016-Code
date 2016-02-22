@@ -1,7 +1,7 @@
 package org.usfirst.frc.team1247.robot.subsystems;
 
 import org.usfirst.frc.team1247.robot.RobotMap;
-
+import org.usfirst.frc.team1247.robot.commands.SuctionCommand;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -13,27 +13,31 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 // For getting and releasing balls.
 public class Suction extends Subsystem {
    
-	private Talon suctionTalon;
-   
+	private Talon suctionRightTalon;
+	private Talon suctionLeftTalon;
 	public Suction() {
-		suctionTalon = new Talon (RobotMap.TALON_CHANNEL_SUCTION);
+		suctionRightTalon = new Talon (RobotMap.TALON_CHANNEL_SUCTION_RIGHT);
+		suctionLeftTalon = new Talon (RobotMap.TALON_CHANNEL_SUCTION_LEFT);
 	}
 	
 	
     public void initDefaultCommand() {
-
+    	setDefaultCommand(new SuctionCommand());
     }
     
     public void suck() {
-    	suctionTalon.set(RobotMap.SUCTION_SPEED);
+    	suctionRightTalon.set(RobotMap.SUCTION_SPEED);
+    	suctionLeftTalon.set(RobotMap.SUCTION_SPEED*-1);
     }
     
     public void stop() {
-    	suctionTalon.set(RobotMap.SUCTION_STOP);
+    	suctionRightTalon.set(RobotMap.SUCTION_STOP);
+    	suctionLeftTalon.set(RobotMap.SUCTION_STOP);
     }
     
     public void blow() {
-    	suctionTalon.set(RobotMap.BLOW_SPEED);
+    	suctionRightTalon.set(RobotMap.BLOW_SPEED);
+    	suctionLeftTalon.set(-RobotMap.BLOW_SPEED*-1);
     }
 }
 

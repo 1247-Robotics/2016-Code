@@ -24,10 +24,7 @@ public class SuctionCommand extends BaseCommand {
     protected void execute() {
     	if (oi.getSuctionButton()) {
     		suction.suck();
-    	} else {
-    		suction.stop();
-    	}
-    	if (oi.getReverseSuctionButton()) {
+    	} else if (oi.getReverseSuctionButton()) {
     		suction.blow();
     	} else {
     		suction.stop();

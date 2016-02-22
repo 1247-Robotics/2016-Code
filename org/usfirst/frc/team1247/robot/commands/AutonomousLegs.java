@@ -8,33 +8,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class AutonomousLegs extends BaseCommand {
 	
 	private boolean isExtended, isRetracted;
-//whaaaaaaaaaat I thought I knew what I was doing for maybe two minutes.
+
 	public AutonomousLegs(LegRegion leg, boolean doExtend){
 		if (doExtend){
 			legs.extendLeg(leg);
 		} else {
 			legs.retractLeg(leg);
 		}
-		requires(legs);
-	}
-	
-	public AutonomousLegs(double frontLegs, double rearLegs, boolean doExtend, LegRegion leg){
-		if (doExtend){
-			legs.extendLeg(leg);
-		} else {
-			legs.retractLeg(leg);
-		}
-		
-		requires(legs);
-	}
-	
-	public AutonomousLegs(double allLegs, boolean doExtend, LegRegion leg){
-		if (doExtend){
-			legs.extendLeg(leg);
-		} else {
-			legs.retractLeg(leg);
-		}
-		
 		requires(legs);
 	}
 	
@@ -45,12 +25,7 @@ public class AutonomousLegs extends BaseCommand {
 	
 	@Override
 	protected void execute() {
-		if(!isExtended){
-			
-		} else {
-			isRetracted = true;
-		}
-
+		super.execute();
 	}
 
 	/* (non-Javadoc)  
