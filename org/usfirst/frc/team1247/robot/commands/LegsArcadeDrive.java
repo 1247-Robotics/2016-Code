@@ -16,15 +16,15 @@ public class LegsArcadeDrive extends BaseCommand {
 		System.out.println("LegsArcadeDrive initialization");
 		throttle = 1.0;
 		
-		requires(legsDrive);
+		//requires(legsDrive);
 	}
 
 	@Override
 	protected void execute() {
 		throttle = Math.abs(oi.getZThrottle());
 		
-		legsDrive.legsArcadeDrive(-oi.getYAxis()*throttle, 
-					 			  -oi.getXAxis()*throttle);
+		//legsDrive.legsArcadeDrive(-oi.getYAxis()*throttle, 
+			//		 			  -oi.getXAxis()*throttle);
 	}
 
 	@Override

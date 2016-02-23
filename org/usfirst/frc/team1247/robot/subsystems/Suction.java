@@ -27,7 +27,7 @@ public class Suction extends Subsystem {
     
     public void suck() {
     	suctionRightTalon.set(RobotMap.SUCTION_SPEED);
-    	suctionLeftTalon.set(RobotMap.SUCTION_SPEED*-1);
+    	suctionLeftTalon.set(-RobotMap.SUCTION_SPEED); // negative to mirror right
     }
     
     public void stop() {
@@ -37,7 +37,7 @@ public class Suction extends Subsystem {
     
     public void blow() {
     	suctionRightTalon.set(RobotMap.BLOW_SPEED);
-    	suctionLeftTalon.set(-RobotMap.BLOW_SPEED*-1);
+    	suctionLeftTalon.set(-RobotMap.BLOW_SPEED); // negative to mirror right
     }
 }
 

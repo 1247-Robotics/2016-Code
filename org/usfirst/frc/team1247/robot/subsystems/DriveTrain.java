@@ -19,22 +19,27 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * @see Subsystem
  */
 public class DriveTrain extends Subsystem{
-	private Talon talonLeft, talonRight;
+	private Talon talonLeft, talonRight, talonLegLeft, talonLegRight;
 		
 	//DriveMode driveMode;
 	
-	private RobotDrive drive;
+	private RobotDrive drive, legsDrive;
 	
 	public DriveTrain() {
 		//System.out.println("DriveTrain initialization");
 		talonLeft = new Talon(RobotMap.TALON_CHANNEL_LEFT);
 		talonRight = new Talon(RobotMap.TALON_CHANNEL_RIGHT);
+		talonLegLeft = new Talon(RobotMap.LEG_TALON_CHANNEL_LEFT);
+		talonLegRight = new Talon(RobotMap.LEG_TALON_CHANNEL_RIGHT);
+		
 		
 		LiveWindow.addActuator("left","talonLeft", talonLeft);
 		LiveWindow.addActuator("right","talonRight", talonRight);
 		
 		drive = new RobotDrive(talonLeft, talonRight);
 		drive.setSafetyEnabled(false);
+		legsDrive = new RobotDrive(talonLegLeft, talonLegRight);
+		legsDrive.setSafetyEnabled(false);
 	}
 	
 	
@@ -50,9 +55,7 @@ public class DriveTrain extends Subsystem{
 		}*/
 		
 		if (OI.driveMode == DriveMode.TANK_DRIVE) {
-			
-;
-		
+			setDefaultCommand(new TankDrive());
 		} else {
 	
 			setDefaultCommand(new ArcadeDrive());
@@ -62,11 +65,13 @@ public class DriveTrain extends Subsystem{
 	
 	public void tankDrive(double left, double right) {
 		drive.tankDrive(left, right);
+		legsDrive.tankDrive(left*RobotMap.LEG_SPEED_MULTIPLIER, right*RobotMap.LEG_SPEED_MULTIPLIER);
 	}
 
 	public void arcadeDrive(double left, double right) {
 	//	System.out.println("Arcade Drive did a thing.");
 		drive.arcadeDrive(left, right);
+		legsDrive.arcadeDrive(left*RobotMap.LEG_SPEED_MULTIPLIER,right*RobotMap.LEG_SPEED_MULTIPLIER);
 	
 	}
 }

@@ -25,7 +25,7 @@ public abstract class BaseCommand extends Command {
 	//create subsystems.
 	public static DriveTrain driveTrain;
 	
-	public static LegsDriveTrain legsDrive;
+	//public static LegsDriveTrain legsDrive;
 	
 	public static Arm arm;
 	

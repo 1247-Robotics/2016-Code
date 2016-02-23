@@ -30,14 +30,14 @@ public class LegsDriveTrain extends Subsystem {
 	
 	@Override
 	protected void initDefaultCommand() {
-		/*switch(this.driveMode){
+		switch(this.driveMode){
 		case TANK_DRIVE:
 			setDefaultCommand(new LegsDrive());
 			break;
 		case ARCADE_DRIVE:
 			setDefaultCommand(new LegsArcadeDrive());
 			break;
-		}*/
+		}
 		
 		if (OI.driveMode == DriveMode.TANK_DRIVE) {
 			

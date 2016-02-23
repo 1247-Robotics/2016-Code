@@ -72,10 +72,10 @@ public class RobotMap {
 	// ----------------------------------------------------------------------------------------------------------------------------------
 
 	// Talons
-	public static final int TALON_CHANNEL_LEFT = 1;
-	public static final int TALON_CHANNEL_RIGHT = 0;
-	public static final int LEG_TALON_CHANNEL_RIGHT = 5;
-	public static final int LEG_TALON_CHANNEL_LEFT = 4;
+	public static final int TALON_CHANNEL_LEFT = 1; //1
+	public static final int TALON_CHANNEL_RIGHT = 0; //0
+	public static final int LEG_TALON_CHANNEL_RIGHT = 5; //5
+	public static final int LEG_TALON_CHANNEL_LEFT = 4; //4
 	//public static final int TALON_CHANNEL_LIFT = 2;
 	public static final int TALON_CHANNEL_SUCTION_LEFT = 2;
 	public static final int TALON_CHANNEL_SUCTION_RIGHT = 3;
@@ -83,9 +83,8 @@ public class RobotMap {
 	public static final double SUCTION_SPEED = 1; // max is 1
 	public static final double BLOW_SPEED = -1; // max is -1
 	public static final double SUCTION_STOP = 0;
-
-	public static final int ENCODER_CHANNEL_LIFT_A = 8;
-	public static final int ENCODER_CHANNEL_LIFT_B = 9;
+	
+	public static final double LEG_SPEED_MULTIPLIER = 0.5009; // Calculated from Gear Ratios Sheet on GoogleDrive
 
 	// ----------------------------------------------------------------------------------------------------------------------------------
 
