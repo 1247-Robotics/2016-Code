@@ -17,7 +17,7 @@ public class RobotMap {
 	public static final double CONTROLLER_THROTTLE = 1; // limits absolute speed
 														// when xbox or snes
 														// controller
-
+	public static final int DIGITAL_INPUT_SUCTION_ID = 0;
 	// -------------------------------------------Joysticks---------------------------------------------------------------------------
 
 	// Lift Buttons and Stuff
@@ -76,15 +76,17 @@ public class RobotMap {
 	public static final int TALON_CHANNEL_RIGHT = 0; //0
 	public static final int LEG_TALON_CHANNEL_RIGHT = 5; //5
 	public static final int LEG_TALON_CHANNEL_LEFT = 4; //4
+	public static final int TALON_CHANNEL_ARM = 7;
 	//public static final int TALON_CHANNEL_LIFT = 2;
 	public static final int TALON_CHANNEL_SUCTION_LEFT = 2;
 	public static final int TALON_CHANNEL_SUCTION_RIGHT = 3;
 
-	public static final double SUCTION_SPEED = 1; // max is 1
+	public static final double SUCTION_SPEED = .5; // max is 1
 	public static final double BLOW_SPEED = -1; // max is -1
 	public static final double SUCTION_STOP = 0;
 	
-	public static final double LEG_SPEED_MULTIPLIER = 0.5009; // Calculated from Gear Ratios Sheet on GoogleDrive
+	public static final double LEG_SPEED_MULTIPLIER = 0.65; 
+	public static final double ARM_SPEED_MULTIPLIER = 0.25;
 
 	// ----------------------------------------------------------------------------------------------------------------------------------
 

@@ -22,12 +22,14 @@ public class SuctionCommand extends BaseCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (oi.getSuctionButton()) {
-    		suction.suck();
-    	} else if (oi.getReverseSuctionButton()) {
+    	  if (oi.getReverseSuctionButton()) {
     		suction.blow();
     	} else {
-    		suction.stop();
+    		if (suction.isBall()){
+    			suction.stop();
+    		} else{
+    			suction.suck();
+    		}
     	}
     }
 

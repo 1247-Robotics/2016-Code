@@ -3,7 +3,7 @@ package org.usfirst.frc.team1247.robot.subsystems;
 import org.usfirst.frc.team1247.robot.OI;
 import org.usfirst.frc.team1247.robot.RobotMap;
 import org.usfirst.frc.team1247.robot.commands.ArcadeDrive;
-import org.usfirst.frc.team1247.robot.commands.LegsDrive;
+//import org.usfirst.frc.team1247.robot.commands.LegsDrive;
 import org.usfirst.frc.team1247.robot.commands.LegsArcadeDrive;
 import org.usfirst.frc.team1247.robot.commands.TankDrive;
 import org.usfirst.frc.team1247.robot.utils.DriveMode;
@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class LegsDriveTrain extends Subsystem {
+/*public class LegsDriveTrain extends Subsystem {
     
 	private Talon talonRight, talonLeft;
 	private RobotDrive legsDrive;
@@ -58,4 +58,4 @@ public class LegsDriveTrain extends Subsystem {
 		legsDrive.arcadeDrive(left,right);
 	}
 }
-
+*/

@@ -229,7 +229,7 @@ public class OI {
 	
 //---------------------------------------------------Leg Toggle Button---------------------------------------------------------------
 	
-	
+	/*
 	public boolean getLegToggleButton(){
 		boolean pressed = false;
 		driveType = DriveType.DRIVETRAIN;
@@ -265,7 +265,7 @@ public class OI {
 		return pressed;
 	}
 	
-	
+	*/
 //---------------------------------------------------------Suction--------------------------------------------------------------------
 		
 	

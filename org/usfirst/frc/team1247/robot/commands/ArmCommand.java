@@ -8,19 +8,26 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class ArmCommand extends BaseCommand {
 		
+
+	
 	public ArmCommand() {
 		System.out.println("Arm initialization");
-	    requires(arm);	
+		
+		requires(arm);
+
+	}
+
+	@Override
+	protected void execute() {
+		//System.out.println("ArcadeDrive execution")
+		
+		arm.swing(oi.getXAxis()*RobotMap.ARM_SPEED_MULTIPLIER);
 	}
 	    
 	protected void initialize() {
 		
 	}
-	
-	@Override
-	protected void execute() {
-		
-	}
+
 	
     protected boolean isFinished() {
         return false;

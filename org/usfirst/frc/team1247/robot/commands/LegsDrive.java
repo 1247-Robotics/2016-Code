@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1247.robot.commands;
 
-import org.usfirst.frc.team1247.robot.subsystems.LegsDriveTrain;
+//import org.usfirst.frc.team1247.robot.subsystems.LegsDriveTrain;
 import org.usfirst.frc.team1247.robot.OI;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LegsDrive extends BaseCommand{
+/*public class LegsDrive extends BaseCommand{
 	
 	private double throttle;
 	
@@ -51,3 +51,4 @@ public class LegsDrive extends BaseCommand{
 		super.interrupted();
 	}	
 }
+*/
