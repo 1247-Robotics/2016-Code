@@ -21,7 +21,7 @@ public class ArmCommand extends BaseCommand {
 	protected void execute() {
 		//System.out.println("ArcadeDrive execution")
 		
-		arm.swing(oi.getXAxis()*RobotMap.ARM_SPEED_MULTIPLIER);
+		arm.swing(oi.getArmAxis()*RobotMap.ARM_SPEED_MULTIPLIER);
 	}
 	    
 	protected void initialize() {

@@ -90,6 +90,25 @@ public class OI {
 		return axisValue;
 	}
 	
+	
+	public double getArmAxis() {
+		double axisValue = 0;
+		
+		switch(OI.controller){
+		case XBOX_CONTROLLER:
+			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
+			 break;
+		case JOYSTICK:
+			axisValue = rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+			break;
+		default:
+			axisValue = 0; //bad stuff happened, let the crying begin
+			break;
+		}
+		return axisValue;
+	}
+	
+	
 //------------------------------------------------------------------------------------------------------------------------------------
 	
 	public double getLeftAxis() {

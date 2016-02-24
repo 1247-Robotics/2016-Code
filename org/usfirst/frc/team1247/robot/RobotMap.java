@@ -29,11 +29,11 @@ public class RobotMap {
 	public static final int JOYSTICK_PNEUMATICS_REAR_LEFT_BUTTON_ID = 2;
 
 	// Leg toggle
-	public static final int JOYSTICK_LEG_TOGGLE_BUTTON_ID = 1;
+	//public static final int JOYSTICK_LEG_TOGGLE_BUTTON_ID = 1;
 
 	// Suction for boulder
 	public static final int JOYSTICK_SUCTION_BUTTON_ID = 10;
-	public static final int JOYSTICK_REVERSE_SUCTION_BUTTON_ID = 11;
+	public static final int JOYSTICK_REVERSE_SUCTION_BUTTON_ID = 1;
 
 	// -----------------------------------------------Xbox-------------------------------------------------------------------------------
 
@@ -81,12 +81,12 @@ public class RobotMap {
 	public static final int TALON_CHANNEL_SUCTION_LEFT = 2;
 	public static final int TALON_CHANNEL_SUCTION_RIGHT = 3;
 
-	public static final double SUCTION_SPEED = .5; // max is 1
+	public static final double SUCTION_SPEED = .25; // max is 1
 	public static final double BLOW_SPEED = -1; // max is -1
 	public static final double SUCTION_STOP = 0;
 	
 	public static final double LEG_SPEED_MULTIPLIER = 0.65; 
-	public static final double ARM_SPEED_MULTIPLIER = 0.25;
+	public static final double ARM_SPEED_MULTIPLIER = 0.6;
 
 	// ----------------------------------------------------------------------------------------------------------------------------------
 
