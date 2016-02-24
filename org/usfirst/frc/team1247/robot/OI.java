@@ -25,7 +25,7 @@ public class OI {
 	
 	Joystick snesJoystick;
 	
-	Joystick xboxJoystick;
+	Joystick xboxDriveJoystick;
 	
 	Joystick xboxArmJoystick;
 	/**
@@ -43,7 +43,8 @@ public class OI {
 		this.setDriveMode();
 		
 		
-		xboxJoystick = new Joystick(RobotMap.XBOX_ID);
+		xboxDriveJoystick = new Joystick(RobotMap.XBOX_DRIVE_ID);
+		xboxArmJoystick = new Joystick(RobotMap.XBOX_ARM_ID);
 	
 		leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
 		rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
@@ -61,7 +62,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_XAXIS_ID);
+			 axisValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_XAXIS_ID);
 			 break;
 		case JOYSTICK:
 			axisValue = leftJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
@@ -78,7 +79,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
+			 axisValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
 			 break;
 		case JOYSTICK:
 			axisValue = leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
@@ -96,7 +97,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
+			 axisValue = xboxArmJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
 			 break;
 		case JOYSTICK:
 			axisValue = rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
@@ -116,7 +117,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_LEFT_YAXIS_ID);
+			 axisValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_LEFT_YAXIS_ID);
 			 break;
 		case JOYSTICK:
 			axisValue = leftJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
@@ -137,7 +138,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			 axisValue = xboxJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
+			 axisValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
 			 break;
 		case JOYSTICK:
 			axisValue = rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
@@ -182,7 +183,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_BUTTON_ID);
+			pressed = xboxDriveJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_BUTTON_ID);
 			break;
 		case JOYSTICK:
 			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_BUTTON_ID);
@@ -203,7 +204,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			triggerValue = xboxJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_LTRIGGER_ID);
+			triggerValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_LTRIGGER_ID);
 			if (triggerValue > 0){
 				pressed = true;
 			}
@@ -228,7 +229,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			triggerValue = xboxJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
+			triggerValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
 			if (triggerValue > 0){
 				pressed = true;
 			}
@@ -293,7 +294,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_SUCTION_BUTTON_ID);
+			pressed = xboxDriveJoystick.getRawButton(RobotMap.XBOX_SUCTION_BUTTON_ID);
 			break;
 		case JOYSTICK:
 			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_SUCTION_BUTTON_ID);
@@ -309,7 +310,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			pressed = xboxJoystick.getRawButton(RobotMap.XBOX_REVERSE_SUCTION_BUTTON_ID);
+			pressed = xboxDriveJoystick.getRawButton(RobotMap.XBOX_REVERSE_SUCTION_BUTTON_ID);
 			break;
 		case JOYSTICK:
 			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_REVERSE_SUCTION_BUTTON_ID);
