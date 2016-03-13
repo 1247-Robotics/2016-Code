@@ -27,7 +27,7 @@ public class OI {
 	
 	Joystick xboxDriveJoystick;
 	
-	Joystick xboxArmJoystick;
+	//Joystick xboxArmJoystick;
 	/**
 	 * Initializes both joysticks.
 	 */
@@ -37,18 +37,20 @@ public class OI {
 	
 	public OI () {	
 		//System.out.println("OI initialization");
-		arduino = new Joystick(RobotMap.ARDUINO_ID);
+		/*arduino = new Joystick(RobotMap.ARDUINO_ID);
 
 		this.setControllerType();
 		this.setDriveMode();
-		
+		*/
 		
 		xboxDriveJoystick = new Joystick(RobotMap.XBOX_DRIVE_ID);
-		xboxArmJoystick = new Joystick(RobotMap.XBOX_ARM_ID);
+		//xboxArmJoystick = new Joystick(RobotMap.XBOX_ARM_ID);
 	
 		leftJoystick = new Joystick(RobotMap.JOYSTICK_LEFT_ID);
 		rightJoystick = new Joystick(RobotMap.JOYSTICK_RIGHT_ID);
 		
+		OI.driveMode = DriveMode.ARCADE_DRIVE;
+		OI.controller = ControllerType.XBOX_CONTROLLER;
 	}
 	
 	
@@ -92,23 +94,7 @@ public class OI {
 	}
 	
 	
-	public double getArmAxis() {
-		double axisValue = 0;
-		
-		switch(OI.controller){
-		case XBOX_CONTROLLER:
-			 axisValue = xboxArmJoystick.getRawAxis(RobotMap.XBOX_YAXIS_ID);
-			 break;
-		case JOYSTICK:
-			axisValue = rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
-			break;
-		default:
-			axisValue = 0; //bad stuff happened, let the crying begin
-			break;
-		}
-		return axisValue;
-	}
-	
+
 	
 //------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -150,6 +136,58 @@ public class OI {
 		return axisValue;
 	}
 	
+	public double getRightXAxis() {
+		double axisValue = 0;
+		
+		switch(OI.controller){
+		case XBOX_CONTROLLER:
+			 axisValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_RIGHT_XAXIS_ID);
+			 break;
+		case JOYSTICK:
+			axisValue = rightJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
+			break;
+		default:
+			axisValue = 0; //bad stuff happened, let the crying begin
+			break;
+		}
+		return axisValue;
+	}
+	
+	public double getArmYAxis() {
+		double axisValue = 0;
+		
+		switch(OI.controller){
+		case XBOX_CONTROLLER:
+			 //axisValue = xboxArmJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
+			axisValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
+			break;
+		case JOYSTICK:
+			axisValue = rightJoystick.getRawAxis(RobotMap.JOYSTICK_YAXIS_ID);
+			break;
+		default:
+			axisValue = 0; //bad stuff happened, let the crying begin
+			break;
+		}
+		return axisValue;
+	}
+		
+		public double getArmXAxis() {
+			double axisValue = 0;
+			
+			switch(OI.controller){
+			case XBOX_CONTROLLER:
+				 //axisValue = xboxArmJoystick.getRawAxis(RobotMap.XBOX_RIGHT_YAXIS_ID);
+				axisValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_RIGHT_XAXIS_ID);
+				break;
+			case JOYSTICK:
+				axisValue = rightJoystick.getRawAxis(RobotMap.JOYSTICK_XAXIS_ID);
+				break;
+			default:
+				axisValue = 0; //bad stuff happened, let the crying begin
+				break;
+			}
+			return axisValue;
+	}
 	
 //-----------------------------------------------Throttle-----------------------------------------------------------------------------
 
@@ -183,7 +221,7 @@ public class OI {
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			pressed = xboxDriveJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_BUTTON_ID);
+			pressed = xboxDriveJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_FRONT_BUTTON_ID);
 			break;
 		case JOYSTICK:
 			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_FRONT_BUTTON_ID);
@@ -200,14 +238,15 @@ public class OI {
 	
 	public boolean getRearLeftPneumaticsButton(){
 		boolean pressed = false;
-		double triggerValue = 0;
+		//double triggerValue = 0;
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			triggerValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_LTRIGGER_ID);
-			if (triggerValue > 0){
-				pressed = true;
-			}
+			pressed = xboxDriveJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_LEFT_REAR_BUTTON_ID);
+			//triggerValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_LTRIGGER_ID);
+			//if (triggerValue > 0){
+			//	pressed = true;
+			//}
 			break;
 		case JOYSTICK:
 			pressed = leftJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_REAR_LEFT_BUTTON_ID);
@@ -225,14 +264,15 @@ public class OI {
 	
 	public boolean getRearRightPneumaticsButton(){
 		boolean pressed = false;
-		double triggerValue = 0;
+		//double triggerValue = 0;
 		
 		switch(OI.controller){
 		case XBOX_CONTROLLER:
-			triggerValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
-			if (triggerValue > 0){
-				pressed = true;
-			}
+			pressed = xboxDriveJoystick.getRawButton(RobotMap.XBOX_PNEUMATICS_RIGHT_REAR_BUTTON_ID);
+			//triggerValue = xboxDriveJoystick.getRawAxis(RobotMap.XBOX_PNEUMATICS_RTRIGGER_ID);
+			//if (triggerValue > 0){
+			//	pressed = true;
+			//}
 			break;
 		case JOYSTICK:
 			pressed = rightJoystick.getRawButton(RobotMap.JOYSTICK_PNEUMATICS_REAR_RIGHT_BUTTON_ID);
@@ -289,7 +329,7 @@ public class OI {
 //---------------------------------------------------------Suction--------------------------------------------------------------------
 		
 	
-	public boolean getSuctionButton(){
+	/*public boolean getSuctionButton(){
 		boolean pressed = false;
 		
 		switch(OI.controller){
@@ -317,11 +357,11 @@ public class OI {
 			break;
 		}
 		return pressed;
-	}
+	}*/
 	
 //---------------------------------------------Drive Mode----------------------------------------------------------------------------
 
-	public void setDriveMode() {
+	/*public void setDriveMode() {
 		System.out.println("Set Drive");
 		if (arduino.getRawButton(RobotMap.ARDUINO_DRIVE_MODE_BUTTON)){
 			OI.driveMode = DriveMode.ARCADE_DRIVE;
@@ -348,5 +388,5 @@ public class OI {
 		//OI.controller = ControllerType.JOYSTICK;
 		//OI.controller = ControllerType.XBOX_CONTROLLER;
 	}
-	
+	*/
 }

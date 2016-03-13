@@ -1,7 +1,7 @@
 package org.usfirst.frc.team1247.robot.subsystems;
 
 import org.usfirst.frc.team1247.robot.RobotMap;
-import org.usfirst.frc.team1247.robot.commands.SuctionCommand;
+//import org.usfirst.frc.team1247.robot.commands.SuctionCommand;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.Talon;
 
 
 // For getting and releasing balls.
-public class Suction extends Subsystem {
+/*public class Suction extends Subsystem {
 	
 	private static DigitalInput suctionSwitch;
 	
@@ -53,5 +53,5 @@ public class Suction extends Subsystem {
     	//System.out.println(val);
     	return val;
     }
-}
+}*/
 

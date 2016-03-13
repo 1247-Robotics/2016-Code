@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-/*public class LegsDrive extends BaseCommand{
+public class LegsDrive extends BaseCommand{
 	
 	private double throttle;
 	
@@ -16,14 +16,14 @@ import edu.wpi.first.wpilibj.command.Command;
 		System.out.println("LegsDrive initialization");
 		throttle = 1.0;
 		
-		requires(legsDrive);
+		requires(legsDriveTrain);
 	}
 
 	@Override
 	protected void execute() {
 	throttle = Math.abs(oi.getZThrottle());
 	
-	legsDrive.legsDrive(-oi.getLeftAxis()*throttle, 
+	legsDriveTrain.legsDrive(-oi.getLeftAxis()*throttle, 
 						-oi.getRightAxis()*throttle);
 	}
 
@@ -51,4 +51,3 @@ import edu.wpi.first.wpilibj.command.Command;
 		super.interrupted();
 	}	
 }
-*/

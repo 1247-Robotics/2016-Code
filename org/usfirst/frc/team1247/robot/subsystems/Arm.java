@@ -7,11 +7,12 @@ import edu.wpi.first.wpilibj.Talon;
 
 public class Arm extends Subsystem {
 	
-	private Talon armTalon;
-	
+	private Talon armTalonY;
+	private Talon armTalonX;
 	
 	public Arm () {
-		armTalon = new Talon (RobotMap.TALON_CHANNEL_ARM);
+		armTalonY = new Talon (RobotMap.TALON_CHANNEL_ARM_Y);
+		armTalonX = new Talon (RobotMap.TALON_CHANNEL_ARM_X); 
 		
 	}
 	
@@ -26,7 +27,8 @@ public class Arm extends Subsystem {
 		
 	}
 	public void swing(double speed) {
-		armTalon.set(speed);
+		armTalonY.set(speed);
+		armTalonX.set(speed);
 	}
 	
 }

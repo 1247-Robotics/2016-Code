@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1247.robot.commands;
 
-import org.usfirst.frc.team1247.robot.subsystems.Suction;
+//import org.usfirst.frc.team1247.robot.subsystems.Suction;
 import org.usfirst.frc.team1247.robot.OI;
 import org.usfirst.frc.team1247.robot.RobotMap;
 
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class SuctionCommand extends BaseCommand {
+/*public class SuctionCommand extends BaseCommand {
 
     public SuctionCommand() {
     	System.out.println("Suction initialization");
@@ -46,4 +46,4 @@ public class SuctionCommand extends BaseCommand {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}
+}*/

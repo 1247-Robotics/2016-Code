@@ -58,8 +58,8 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousMode != null) autonomousMode.cancel();
         
-        oi.setControllerType();
-        oi.setDriveMode();
+       // oi.setControllerType();
+       // oi.setDriveMode();
         
         //***************very likely to break all the codes***************
         //***This might fix the arduino switching drive types on enable***

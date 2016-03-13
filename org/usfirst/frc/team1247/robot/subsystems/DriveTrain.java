@@ -23,7 +23,7 @@ public class DriveTrain extends Subsystem{
 		
 	//DriveMode driveMode;
 	
-	private RobotDrive drive, legsDrive;
+	private RobotDrive drive, legsDriveTrain;
 	
 	public DriveTrain() {
 		//System.out.println("DriveTrain initialization");
@@ -38,8 +38,8 @@ public class DriveTrain extends Subsystem{
 		
 		drive = new RobotDrive(talonLeft, talonRight);
 		drive.setSafetyEnabled(false);
-		legsDrive = new RobotDrive(talonLegLeft, talonLegRight);
-		legsDrive.setSafetyEnabled(false);
+		legsDriveTrain = new RobotDrive(talonLegLeft, talonLegRight);
+		legsDriveTrain.setSafetyEnabled(false);
 	}
 	
 	
@@ -65,13 +65,13 @@ public class DriveTrain extends Subsystem{
 	
 	public void tankDrive(double left, double right) {
 		drive.tankDrive(left, right);
-		legsDrive.tankDrive(left*RobotMap.LEG_SPEED_MULTIPLIER, right*RobotMap.LEG_SPEED_MULTIPLIER);
+		legsDriveTrain.tankDrive(-left*RobotMap.LEG_SPEED_MULTIPLIER, -right*RobotMap.LEG_SPEED_MULTIPLIER);
 	}
 
 	public void arcadeDrive(double left, double right) {
 	//	System.out.println("Arcade Drive did a thing.");
 		drive.arcadeDrive(left, right);
-		legsDrive.arcadeDrive(left*RobotMap.LEG_SPEED_MULTIPLIER,right*RobotMap.LEG_SPEED_MULTIPLIER);
+		legsDriveTrain.arcadeDrive(-left*RobotMap.LEG_SPEED_MULTIPLIER,-right*RobotMap.LEG_SPEED_MULTIPLIER);
 	
 	}
 }

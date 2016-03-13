@@ -25,8 +25,8 @@ public class ArcadeDrive extends BaseCommand {
 		//System.out.println("ArcadeDrive execution");
 		throttle = Math.abs(oi.getZThrottle());
 		
-		driveTrain.arcadeDrive(java.lang.Math.pow((oi.getYAxis()*throttle*0.95),3),
-							   -oi.getXAxis()*throttle);
+		driveTrain.arcadeDrive(-oi.getYAxis()*throttle,
+							  -oi.getXAxis()*throttle);
 	}
 
 	@Override

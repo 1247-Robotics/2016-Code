@@ -10,7 +10,7 @@ public class RobotMap {
 	// Magic numbers go here!
 	public static final int ARDUINO_ID = 3;
 	public static final int SNES_ID = 0;
-	public static final int XBOX_DRIVE_ID = 2;
+	public static final int XBOX_DRIVE_ID = 1;
 	public static final int XBOX_ARM_ID = 4;
 	public static final int JOYSTICK_LEFT_ID = 1;
 	public static final int JOYSTICK_RIGHT_ID = 0;
@@ -41,13 +41,16 @@ public class RobotMap {
 	// Drive
 	public static final int XBOX_LEFT_YAXIS_ID = 1;
 	public static final int XBOX_RIGHT_YAXIS_ID = 5;
+	public static final int XBOX_RIGHT_XAXIS_ID = 4;
 	public static final int XBOX_XAXIS_ID = 0;
 	public static final int XBOX_YAXIS_ID = 1;
 
 	// Pneumatic legs
 	public static final int XBOX_PNEUMATICS_RTRIGGER_ID = 3;
 	public static final int XBOX_PNEUMATICS_LTRIGGER_ID = 2;
-	public static final int XBOX_PNEUMATICS_RIGHT_BUTTON_ID = 6;
+	public static final int XBOX_PNEUMATICS_FRONT_BUTTON_ID = 1;
+	public static final int XBOX_PNEUMATICS_RIGHT_REAR_BUTTON_ID = 6;
+	public static final int XBOX_PNEUMATICS_LEFT_REAR_BUTTON_ID = 5;
 
 	// Leg toggle
 	public static final int XBOX_LEG_TOGGLE_BUTTON_ID = 1;
@@ -67,17 +70,20 @@ public class RobotMap {
 
 	// -------------------------------------------------ARDUINO--------------------------------------------------------------------------
 
-	public static final int ARDUINO_DRIVE_MODE_BUTTON = 1;
-	public static final int ARDUINO_CONTROLLER_BUTTON = 2;
+	public static final int ARDUINO_ROUGH_TERRAIN_BUTTON = 4;
+	public static final int ARDUINO_ROCK_WALL_BUTTON = 5;
+	public static final int ARDUINO_MOAT_BUTTON = 6;
+	public static final int ARDUINO_RAMPARTS_BUTTON = 7;
 
 	// ----------------------------------------------------------------------------------------------------------------------------------
 
 	// Talons
 	public static final int TALON_CHANNEL_LEFT = 1; //1
 	public static final int TALON_CHANNEL_RIGHT = 0; //0
-	public static final int LEG_TALON_CHANNEL_RIGHT = 5; //5
-	public static final int LEG_TALON_CHANNEL_LEFT = 4; //4
-	public static final int TALON_CHANNEL_ARM = 7;
+	public static final int LEG_TALON_CHANNEL_RIGHT = 4; //5
+	public static final int LEG_TALON_CHANNEL_LEFT = 5; //4
+	public static final int TALON_CHANNEL_ARM_Y = 6;
+	public static final int TALON_CHANNEL_ARM_X = 7;
 	//public static final int TALON_CHANNEL_LIFT = 2;
 	public static final int TALON_CHANNEL_SUCTION_LEFT = 2;
 	public static final int TALON_CHANNEL_SUCTION_RIGHT = 3;
@@ -102,4 +108,5 @@ public class RobotMap {
 	public static final int REAR_LEFT_LEG = 4;
 
 	// ----------------------------------------------------------------------------------------------------------------------------------
+
 }
