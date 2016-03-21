@@ -7,15 +7,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class AutonomousLegs extends BaseCommand {
 	
-	private boolean isExtended, isRetracted;
+	LegRegion legRegion;
 
-	public AutonomousLegs(LegRegion leg, boolean doExtend){
-		if (doExtend){
-			legs.extendLeg(leg);
-		} else {
-			legs.retractLeg(leg);
-		}
-		requires(legs);
+	public AutonomousLegs(LegRegion legRegion){
+		this.legRegion = legRegion;
 	}
 	
 	@Override

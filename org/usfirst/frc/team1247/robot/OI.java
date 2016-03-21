@@ -3,6 +3,7 @@
 import org.usfirst.frc.team1247.robot.utils.ControllerType;
 import org.usfirst.frc.team1247.robot.utils.DriveType;
 import org.usfirst.frc.team1247.robot.utils.DriveMode;
+import org.usfirst.frc.team1247.robot.utils.AutonomousType;
 
 import edu.wpi.first.wpilibj.Joystick;
 /**
@@ -14,6 +15,7 @@ public class OI {
     
 	public static ControllerType controller;
 	public static DriveMode driveMode;
+	public static AutonomousType autonomousType;
 	
 	DriveType driveType;
 	
@@ -286,6 +288,19 @@ public class OI {
 	}
 	
 	
+//-----------------------------------------------------------------------------------------------------------------------------------
+	
+	public void setAutonomousType() {
+		if (arduino.getRawButton(RobotMap.ARDUINO_ROUGH_TERRAIN_BUTTON)){
+			OI.autonomousType = AutonomousType.ROUGH_TERRAIN;
+		} else if (arduino.getRawButton(RobotMap.ARDUINO_ROCK_WALL_BUTTON)){
+			OI.autonomousType = AutonomousType.ROCK_WALL;
+		} else if (arduino.getRawButton(RobotMap.ARDUINO_MOAT_BUTTON)){
+			OI.autonomousType = AutonomousType.MOAT;
+		} else {
+			OI.autonomousType = AutonomousType.RAMPARTS;
+		}	
+		}
 	
 //---------------------------------------------------Leg Toggle Button---------------------------------------------------------------
 	

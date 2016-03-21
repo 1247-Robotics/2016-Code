@@ -26,42 +26,49 @@ public class AutonomousMode extends CommandGroup {
 		//System.out.println("Autonomous initialization");
 		//Adds commands that autonomous will call
 		
-		//switch(AutonomousMode.autonomousType){
-		//case ROUGH_TERRAIN:
+		switch(AutonomousMode.autonomousType){
+		case ROUGH_TERRAIN:
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			
-			/*addSequential(new AutonomousDrive(-1.0, 3.0));
+			addSequential(new AutonomousDrive(-1.0, 3.0));
 			addSequential(new AutonomousDrive(-1.0, 3.0));
 
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			
+			break;
 		case ROCK_WALL:
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			
-			addSequential(new AutonomousLegs(LegRegion.REAR_LEFT, true));
-			addSequential(new AutonomousLegs(LegRegion.REAR_RIGHT, true));
+			//LOOK AT THE AUTONOMOUSLEGREGION
+			addSequential(new AutonomousLegs(LegRegion.REAR_LEFT));
+			addSequential(new AutonomousLegs(LegRegion.REAR_RIGHT));
 			
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			
-			addSequential(new AutonomousLegs(LegRegion.REAR_LEFT, false));
-			addSequential(new AutonomousLegs(LegRegion.REAR_RIGHT, false));
+			addSequential(new AutonomousLegs(LegRegion.REAR_LEFT));
+			addSequential(new AutonomousLegs(LegRegion.REAR_RIGHT));
 			
+			break;
 		case MOAT:
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			
+			break;
 		case RAMPARTS:
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			addSequential(new AutonomousDrive(1.0, 3.0));
 			
+			break;
 		default:
 			addSequential(new AutonomousDrive(1.0, 10.0));
 			addSequential(new AutonomousDrive(1.0, 10.0));
-		}*/
+			
+			break;
+		}
 	}
 
 }
